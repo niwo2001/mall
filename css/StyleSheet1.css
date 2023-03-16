@@ -1,0 +1,120 @@
+﻿body {
+    margin: 0;
+    background-color: #E6F4FC;
+    font-family: 'Bell MT';
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* HEADER */
+#mainheader h1{
+    color: #28467C;
+    text-align: left;
+    padding: 2%;
+}
+#mainheader {
+    margin-bottom: auto;
+    position: relative;
+    top: 0px;
+    width: 100%;
+    background-color: #FFFFFF;
+    text-align: center;
+    top: 0;
+    left: 0;
+}
+#tableHead{
+    width: 100%;
+    padding: 10px 32px;
+}
+
+/*-------------------*/
+/* MENU */
+.topnav {
+    background-color: #333;
+    overflow: hidden;
+    position: fixed;
+    top: 0;
+    width: 100%;
+  }
+  .topnav a {
+    float: left;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+  }
+  .topnav a:hover {
+    text-decoration: underline;
+    color: white;
+  }
+/*-------------------*/
+
+
+/* MIDDLE PART */
+.infoWrapper {
+    align-content: center;
+    box-shadow: 0 2px 2px 1px rgba(0,0,0,0.2);
+    border-radius: .3em;
+    width: 96%;
+    padding: 2%;
+    margin: 1em auto 1em auto;
+    max-width: 960px;
+    background-color: #ebebeb;
+    display: flex;
+}
+
+.left {
+    flex: 30%;
+    padding: 15px 0;
+  }
+  .left h2 {
+    padding-left: 12px;
+}
+.right {
+    flex: 65%;
+    padding: 15px;
+}
+
+/* Style the search box */
+#searchField {
+    margin-left: 12px;
+    font-size: 18px;
+    padding: 11px;
+    border: 1px solid #ddd;
+  }
+  /* Style the navigation  inside the left column */
+  #searchList {
+    height: 350px;
+    overflow-y: auto;
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+  }
+  #searchList li a {
+    padding: 5px;
+    padding-left: 12px;
+    text-decoration: none;
+    color: black;
+    display: block
+  }
+  #searchList li a:hover {
+    background-color: #eee;
+  }
+
+/*-------------------*/
+
+
+/* FOOTER */
+#mainfooter {
+    background-color: #333;
+    text-align: center;
+    padding: 2% 0;
+    color: white;
+    bottom: 0;
+    padding: 2% 0;
+    width: 100%;
+    margin-top: auto;
+}
+/*-------------------*/
