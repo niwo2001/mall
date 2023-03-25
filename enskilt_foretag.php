@@ -8,25 +8,22 @@
     <div class="left" style="background-color:#bbb;">
         <h2>Sök enskilt företag</h2>
         <input type="text" id="searchField" onkeyup="findSearch()" placeholder="Sök.." title="Skriv in ett företag">
+        
         <ul id="searchList">
-            <li><a href="#" onclick="clickedCompany();">HTML</a></li>
-            <li><a href="#">CSS</a></li>
-            <li><a href="#">JavaScript</a></li>
-            <li><a href="#">PHP</a></li>
-            <li><a href="#">Python</a></li>
-            <li><a href="#">jQuery</a></li>
-            <li><a href="#">SQL</a></li>
-            <li><a href="#">Bootstrap</a></li>
-            <li><a href="#">Node.js</a></li>
-            <li><a href="#">CSS</a></li>
-            <li><a href="#">JavaScript</a></li>
-            <li><a href="#">PHP</a></li>
-            <li><a href="#">Python</a></li>
-            <li><a href="#">jQuery</a></li>
-            <li><a href="#">SQL</a></li>
-            <li><a href="#">Bootstrap</a></li>
-            <li><a href="#">Node.js</a></li>
+
+        <?php
+            include("database/db_connection.php");
+            $conn = OpenCon();
+            $sql = "SELECT NAMN FROM foretag"; // GET DATA 
+            $result = $conn->query($sql);
+            CloseCon($conn);
+
+            while($rows=$result->fetch_assoc()) { ?>
+                <li><a href="#" onclick="clickedCompany();"><?php echo $rows['NAMN']; ?></a></li>
+            <?php } ?>
+        
         </ul>
+        
     </div>
 
     <div class="right">
@@ -51,7 +48,7 @@
     }
 
     function clickedCompany() {
-        document.getElementById("companyNameTitle").innerHTML = "HTML";
+        document.getElementById("companyNameTitle").innerHTML = "Display info";
     }
 
   </script>
