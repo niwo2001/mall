@@ -14,21 +14,39 @@
         <?php
             include("database/db_connection.php");
             $conn = OpenCon();
-            $sql = "SELECT NAMN FROM foretag"; // GET DATA 
+            $sql = "SELECT * FROM foretag"; // GET DATA 
             $result = $conn->query($sql);
             CloseCon($conn);
 
             while($rows=$result->fetch_assoc()) { ?>
-                <li><a href="#" onclick="clickedCompany();"><?php echo $rows['NAMN']; ?></a></li>
+                <li><a href="?id=<?php echo $rows['ID'];?>" ><?php echo $rows['NAMN']; ?></a></li>
             <?php } ?>
         
         </ul>
         
     </div>
 
+
     <div class="right">
-    <h2 id="companyNameTitle">Page Content</h2>
-  </div>
+        <?php
+            if(empty($_GET['id'])){
+                echo "<h2 id='companyNameTitle'>Page Content</h2>";
+            }
+            else{
+                $conn = OpenCon();
+                $id = $_GET['id'];
+                $sql = "SELECT * FROM betalningstiduppgift WHERE BETALNINGSTID_ID = $id";
+                $result = $conn->query($sql);
+                while($row = $result->fetch_assoc()){
+                    echo $row['FAKTISK_BETALTID'];
+                    echo " ";
+                }
+            }
+        ?>
+        
+
+    </div>
+
 
   <script>
     function findSearch() {
@@ -50,6 +68,9 @@
     function clickedCompany() {
         document.getElementById("companyNameTitle").innerHTML = "Display info";
     }
+
+
+
 
   </script>
 

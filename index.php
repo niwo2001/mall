@@ -7,8 +7,6 @@
 
     <h2>Start</h2>
 
-    <button onclick="buttonClicked()">SEND DATA TO DATABASE</button>
-
 </div>
 <!-- Startsida info -->
 
