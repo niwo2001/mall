@@ -14,6 +14,7 @@
 
     <div class="right">
         <?php include("includes/display_clicked_foretag.php"); ?>
+        
     </div>
 
 </div>

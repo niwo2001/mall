@@ -14,12 +14,4 @@
     include("includes/footer.php");
 ?>
     
-<?php
-    function buttonClicked(){
-        include("database/db_connection.php");
-        $conn = OpenCon();
-        
-        CloseCon($conn);
 
-    }
-?>
