@@ -13,8 +13,9 @@
 
 
     <div class="right">
-        <?php include("includes/display_clicked_foretag.php"); ?>
-        
+        <?php include("includes/display_clicked_foretag.php") ?>
+        <canvas id='myChart' width='10' height='10'></canvas>
+        <script src="chart.js"></script>
     </div>
 
 </div>
@@ -22,3 +23,4 @@
 <?php 
     include("includes/footer.php");
 ?>
+
