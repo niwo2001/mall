@@ -40,7 +40,16 @@ $(document).ready(function() {
       var myChart = new Chart(ctx, {
         type: 'bar',
         data: chartData,
-        options: options
+        options: {options,
+          responsive: false,
+            scales: {
+                yAxes: [{
+                    ticks: {
+                        beginAtZero:true
+                    }
+                }]
+            }
+        }
       });
       
       // Update and display the chart

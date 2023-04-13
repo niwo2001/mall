@@ -5,7 +5,7 @@
 
 <div class="infoWrapper">
 
-    <h2>Sammanlags statistik</h2>
+    <h2>Sammanlagd statistik</h2>
 
 
 

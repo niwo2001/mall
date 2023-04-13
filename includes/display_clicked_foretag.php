@@ -17,12 +17,13 @@
         $sql_yearsFromForetag = "SELECT * FROM betalningstid WHERE FORETAG_ID = $id";
         $result_yearsFromForetag = $conn->query($sql_yearsFromForetag);
 
+        $years = 3; //controll how many years are displayed
         $labels_years = array();
         $data_faktisk = array();
         $data_avtalad = array();
 
-        while($row = $result_yearsFromForetag->fetch_assoc()){
-
+        while(($row = $result_yearsFromForetag->fetch_assoc()) && ($years > 0)){
+            $years = $years-1;
             // SAVE THE YEAR
             $labels_years[] = date('Y', strtotime($row['SKAPAT_DATUM']));
             
