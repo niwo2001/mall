@@ -7,18 +7,21 @@
 
     <?php include("includes/display_kategorier.php") ?>
 
-    <table>
-        <tr>
-            <th>Microföretag</th>
-            <th>Småföretag</th>
-            <th>Medelföretag</th>
-        </tr>
-        <tr>
-            <td bgcolor="#FFFFFF"><canvas id='Mi_chart' width='300' height='250'></canvas></td>
-            <td bgcolor="#FFFFFF"><canvas id='Sm_chart' width='300' height='250'></canvas></td>
-            <td bgcolor="#FFFFFF"><canvas id='Me_chart' width='300' height='250'></canvas></td>
-        </tr>
-    </table>
+    <div>
+        <div class = "box">
+            <h3>Microföretag</h3>
+            <canvas id='Mi_chart' width='300' height='250'></canvas>
+        </div>  
+        <div class = "box">  
+            <h3>Småföretag</h3>
+            <canvas id='Sm_chart' width='300' height='250'></canvas>
+        </div>
+        <div class = "box">
+            <h3>Medelföretag</h3>
+            <canvas id='Me_chart' width='300' height='250'></canvas>
+        </div>
+    </div>
+
     <script src="kategorierChart.js"></script>
 
 

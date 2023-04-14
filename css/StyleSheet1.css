@@ -103,6 +103,18 @@
     background-color: #eee;
   }
 
+/* Kategorier - boxar */ 
+.box {
+    float:left;
+    padding-right: 12px;
+}
+.box h3{
+  padding-left: 25px;
+}
+.box canvas{
+  background-color: #FFFFFF;
+}
+
 /*-------------------*/
 
 
