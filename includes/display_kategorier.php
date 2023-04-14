@@ -10,19 +10,19 @@ $micro = 'Microföretag';
 $sma = 'Småföretag';
 $medel = 'Medelföretag';
 
-$periods_start = array();
-// get todays 
+// Get dates
+$periods = array();
 $todaysDate = date('m-d');
 $theYear = intval(date('Y'));
 while ($amount_of_periods > 0){
     $amount_of_periods--;
     if($todaysDate > '06-30'){ // om företagen inte rapporterat in för nuvarande året måste vi "backa" ett år
-        $p_start = ($theYear-1) . "-07-01 00:00:00.000000";
+        $period = ($theYear-1) . "-07-01 00:00:00.000000";
     }
     else{
-        $p_start = $theYear . "-07-01 00:00:00.000000";
+        $period = $theYear . "-07-01 00:00:00.000000";
     }
-    $periods_start[] = $p_start;
+    $periods[] = $period;
     $theYear--;
 }
 
@@ -30,11 +30,11 @@ while ($amount_of_periods > 0){
 $labels_years_MI = array();
 $data_faktisk_MI = array();
 $data_avtalad_MI = array();
-foreach($periods_start as $start){
+foreach($periods as $p){
     // save the years for labeling
-    $labels_years_MI[] = substr($start, 0, 4);
+    $labels_years_MI[] = substr($p, 0, 4);
 
-    $sql = "SELECT * FROM betalningstiduppgift WHERE kategori='Microföretag' AND skapat_datum = '$start'";
+    $sql = "SELECT * FROM betalningstiduppgift WHERE kategori='Microföretag' AND skapat_datum = '$p'";
     $result = $conn->query($sql);        
     
     // error handeling 
@@ -72,11 +72,11 @@ fclose($datafile_MI);
 $labels_years_SM = array();
 $data_faktisk_SM = array();
 $data_avtalad_SM = array();
-foreach($periods_start as $start){
+foreach($periods as $p){
     // save the years for labeling
-    $labels_years_SM[] = substr($start, 0, 4);
+    $labels_years_SM[] = substr($p, 0, 4);
 
-    $sql = "SELECT * FROM betalningstiduppgift WHERE kategori='Småföretag' AND skapat_datum = '$start'";
+    $sql = "SELECT * FROM betalningstiduppgift WHERE kategori='Småföretag' AND skapat_datum = '$p'";
     $result = $conn->query($sql);        
     
     // error handeling 
@@ -114,11 +114,11 @@ fclose($datafile_SM);
 $labels_years_ME = array();
 $data_faktisk_ME= array();
 $data_avtalad_ME = array();
-foreach($periods_start as $start){
+foreach($periods as $p){
     // save the years for labeling
-    $labels_years_ME[] = substr($start, 0, 4);
+    $labels_years_ME[] = substr($p, 0, 4);
 
-    $sql = "SELECT * FROM betalningstiduppgift WHERE kategori='Medelföretag' AND skapat_datum = '$start'";
+    $sql = "SELECT * FROM betalningstiduppgift WHERE kategori='Medelföretag' AND skapat_datum = '$p'";
     $result = $conn->query($sql);        
     
     // error handeling 

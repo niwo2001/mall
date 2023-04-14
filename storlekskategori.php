@@ -6,9 +6,19 @@
 <div class="infoWrapper">
 
     <?php include("includes/display_kategorier.php") ?>
-    <canvas id='Mi_chart' width='300' height='250'></canvas>
-    <canvas id='Sm_chart' width='300' height='250'></canvas>
-    <canvas id='Me_chart' width='300' height='250'></canvas>
+
+    <table>
+        <tr>
+            <th>Microföretag</th>
+            <th>Småföretag</th>
+            <th>Medelföretag</th>
+        </tr>
+        <tr>
+            <td bgcolor="#FFFFFF"><canvas id='Mi_chart' width='300' height='250'></canvas></td>
+            <td bgcolor="#FFFFFF"><canvas id='Sm_chart' width='300' height='250'></canvas></td>
+            <td bgcolor="#FFFFFF"><canvas id='Me_chart' width='300' height='250'></canvas></td>
+        </tr>
+    </table>
     <script src="kategorierChart.js"></script>
 
 

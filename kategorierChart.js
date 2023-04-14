@@ -4,8 +4,6 @@ kategories = ["Mi", "Sm", "Me"];
 kategories.forEach(kategori => {
   
   // NAMES
-  // "Mi_sample.txt"
-  // "Mi"
   var textFile = kategori + "_sample.txt";
   var chartID = kategori + "_chart";
 
@@ -25,12 +23,12 @@ kategories.forEach(kategori => {
             labels: data.labels,
             datasets: [{
               label: 'Avtalad betaltid',
-              backgroundColor: '#FFAEFF',
+              backgroundColor: '#FF77FB',
               data: data.data_avtalad
             },
             {
               label: 'Faktisk betaltid',
-              backgroundColor: '#FF00FF',
+              backgroundColor: '#63E5FB',
               data: data.data_faktisk
             }
             ]
