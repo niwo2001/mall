@@ -26,7 +26,7 @@
             $years = $years-1;
             // SAVE THE YEAR
             $labels_years[] = date('Y', strtotime($row['SKAPAT_DATUM']));
-            
+           
             $betYear_id = $row["ID"];
             $sql_betuppgift = "SELECT * FROM betalningstiduppgift WHERE BETALNINGSTID_ID = $betYear_id";
             $result_betuppgift = $conn->query($sql_betuppgift);

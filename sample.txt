@@ -1,1 +1,1 @@
-{"labels":["2021","2022","2023"],"data_faktisk":[51,46,51],"data_avtalad":[40,43,36]}
+{"labels":["2021","2022","2023"],"data_faktisk":[46,55,45],"data_avtalad":[37,41,41]}

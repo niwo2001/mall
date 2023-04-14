@@ -5,12 +5,10 @@
 
 <div class="infoWrapper">
 
-    <h2>Storlekskategori</h2><br>
-
     <?php include("includes/display_kategorier.php") ?>
-    <canvas id='micro_chart' width='400' height='350'></canvas>
-    <canvas id='sma_chart' width='400' height='350'></canvas>
-    <canvas id='medel_chart' width='400' height='350'></canvas>
+    <canvas id='Mi_chart' width='300' height='250'></canvas>
+    <canvas id='Sm_chart' width='300' height='250'></canvas>
+    <canvas id='Me_chart' width='300' height='250'></canvas>
     <script src="kategorierChart.js"></script>
 
 
