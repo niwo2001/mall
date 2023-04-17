@@ -22,7 +22,7 @@
         </div>
     </div>
 
-    <script src="js/kategorierChart.js"></script>
+    <script src="js/kategorier_chart.js"></script>
 
 
 </div>
