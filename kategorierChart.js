@@ -1,13 +1,19 @@
 
-kategories = ["Mi", "Sm", "Me"];
+const kategories = ["Mi", "Sm", "Me"];
 
-kategories.forEach(kategori => {
+const colors2 = ['#A848C7', '#D149AB', '#E1B739'];
+const colors1 = ['#18A4D5', '#E67930', '#1CDBB6'];
+
+$(document).ready(function() {
+  kategories.forEach((kategori, index) => {
   
   // NAMES
   var textFile = kategori + "_sample.txt";
   var chartID = kategori + "_chart";
+  // COLORS
+  let color1 = colors1[index];
+  let color2 = colors2[index];
 
-  $(document).ready(function() {
       // Get the canvas element
       var ctx = document.getElementById(chartID).getContext('2d');
       
@@ -23,12 +29,12 @@ kategories.forEach(kategori => {
             labels: data.labels,
             datasets: [{
               label: 'Avtalad betaltid',
-              backgroundColor: '#FF77FB',
+              backgroundColor: color1,
               data: data.data_avtalad
             },
             {
               label: 'Faktisk betaltid',
-              backgroundColor: '#63E5FB',
+              backgroundColor: color2,
               data: data.data_faktisk
             }
             ]
@@ -36,21 +42,7 @@ kategories.forEach(kategori => {
           
           // Define the options for the chart
           var options = {
-            scales: {
-              yAxes: [{
-                ticks: {
-                  beginAtZero: true
-                }
-              }]
-            }
-          };
-          
-          // Create the chart
-          var myChart = new Chart(ctx, {
-            type: 'bar',
-            data: chartData,
-            options: {options,
-              responsive: false,
+            responsive: false,
                 scales: {
                   yAxes: [{
                     ticks: {
@@ -59,7 +51,13 @@ kategories.forEach(kategori => {
                     }
                   }]
                 }
-            }
+          };
+          
+          // Create the chart
+          var myChart = new Chart(ctx, {
+            type: 'bar',
+            data: chartData,
+            options: options
           });
           
           // Update and display the chart
@@ -70,6 +68,4 @@ kategories.forEach(kategori => {
         }
       });
   });
-  
-  
 });
