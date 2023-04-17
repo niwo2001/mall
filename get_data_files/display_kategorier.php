@@ -33,25 +33,24 @@ foreach($periods as $p){
     // save the years for labeling
     $labels_years_MI[] = substr($p, 0, 4);
 
-    $sql = "SELECT * FROM betalningstiduppgift WHERE kategori='Microföretag' AND skapat_datum = '$p'";
-    $result = $conn->query($sql);        
-    
-    // error handeling 
-    if (!$result) {
-        echo "Something went wrong.";
+    // Get the average of avtalad bet.
+    $sql_avtalad = "SELECT AVG(AVTALAD_BETALTID) as avg_avtalad FROM betalningstiduppgift WHERE kategori='Microföretag' AND skapat_datum = '$p'";
+    $result_avtalad = $conn->query($sql_avtalad);   
+    if(!$result_avtalad){
+        echo "Error: " . mysqli_error($conn);
     }else{
-        $tot_faktisk = 0;
-        $tot_avtalad = 0;
-        $counter = 0;
-        while($row = $result->fetch_assoc()){
-            $tot_faktisk = $tot_faktisk + $row["FAKTISK_BETALTID"];
-            $tot_avtalad = $tot_avtalad + $row["AVTALAD_BETALTID"];
-            $counter = $counter + 1;
-        }
-        // Get the average and save data
-        $data_faktisk_MI[] = floor($tot_faktisk * (1/$counter));
-        $data_avtalad_MI[] = floor($tot_avtalad * (1/$counter));
-    }   
+        $row_avtalad = mysqli_fetch_assoc($result_avtalad);
+        $data_avtalad_MI[] = $row_avtalad['avg_avtalad'];
+    }
+    // Get the average of faktisk bet.
+    $sql_faktisk = "SELECT AVG(FAKTISK_BETALTID) as avg_faktisk FROM betalningstiduppgift WHERE kategori='Microföretag' AND skapat_datum = '$p'";
+    $result_faktisk = $conn->query($sql_faktisk);   
+    if(!$result_faktisk){
+        echo "Error: " . mysqli_error($conn);
+    }else{
+        $row_faktisk = mysqli_fetch_assoc($result_faktisk);  
+        $data_faktisk_MI[] = $row_faktisk['avg_faktisk'];  
+    }
 }
 // reverse the arrays
 $labels_years_MI = array_reverse($labels_years_MI);
@@ -75,25 +74,24 @@ foreach($periods as $p){
     // save the years for labeling
     $labels_years_SM[] = substr($p, 0, 4);
 
-    $sql = "SELECT * FROM betalningstiduppgift WHERE kategori='Småföretag' AND skapat_datum = '$p'";
-    $result = $conn->query($sql);        
-    
-    // error handeling 
-    if (!$result) {
-        echo "Something went wrong.";
+    // Get the average of avtalad bet.
+    $sql_avtalad = "SELECT AVG(AVTALAD_BETALTID) as avg_avtalad FROM betalningstiduppgift WHERE kategori='Småföretag' AND skapat_datum = '$p'";
+    $result_avtalad = $conn->query($sql_avtalad);   
+    if(!$result_avtalad){
+        echo "Error: " . mysqli_error($conn);
     }else{
-        $tot_faktisk = 0;
-        $tot_avtalad = 0;
-        $counter = 0;
-        while($row = $result->fetch_assoc()){
-            $tot_faktisk = $tot_faktisk + $row["FAKTISK_BETALTID"];
-            $tot_avtalad = $tot_avtalad + $row["AVTALAD_BETALTID"];
-            $counter = $counter + 1;
-        }
-        // Get the average and save data
-        $data_faktisk_SM[] = floor($tot_faktisk * (1/$counter));
-        $data_avtalad_SM[] = floor($tot_avtalad * (1/$counter));
-    }   
+        $row_avtalad = mysqli_fetch_assoc($result_avtalad);
+        $data_avtalad_SM[] = $row_avtalad['avg_avtalad'];
+    }
+    // Get the average of faktisk bet.
+    $sql_faktisk = "SELECT AVG(FAKTISK_BETALTID) as avg_faktisk FROM betalningstiduppgift WHERE kategori='Småföretag' AND skapat_datum = '$p'";
+    $result_faktisk = $conn->query($sql_faktisk);   
+    if(!$result_faktisk){
+        echo "Error: " . mysqli_error($conn);
+    }else{
+        $row_faktisk = mysqli_fetch_assoc($result_faktisk);  
+        $data_faktisk_SM[] = $row_faktisk['avg_faktisk'];  
+    } 
 }
 // reverse the arrays
 $labels_years_SM = array_reverse($labels_years_SM);
@@ -117,25 +115,24 @@ foreach($periods as $p){
     // save the years for labeling
     $labels_years_ME[] = substr($p, 0, 4);
 
-    $sql = "SELECT * FROM betalningstiduppgift WHERE kategori='Medelföretag' AND skapat_datum = '$p'";
-    $result = $conn->query($sql);        
-    
-    // error handeling 
-    if (!$result) {
-        echo "Something went wrong.";
+    // Get the average of avtalad bet.
+    $sql_avtalad = "SELECT AVG(AVTALAD_BETALTID) as avg_avtalad FROM betalningstiduppgift WHERE kategori='Medelföretag' AND skapat_datum = '$p'";
+    $result_avtalad = $conn->query($sql_avtalad);   
+    if(!$result_avtalad){
+        echo "Error: " . mysqli_error($conn);
     }else{
-        $tot_faktisk = 0;
-        $tot_avtalad = 0;
-        $counter = 0;
-        while($row = $result->fetch_assoc()){
-            $tot_faktisk = $tot_faktisk + $row["FAKTISK_BETALTID"];
-            $tot_avtalad = $tot_avtalad + $row["AVTALAD_BETALTID"];
-            $counter = $counter + 1;
-        }
-        // Get the average and save data
-        $data_faktisk_ME[] = floor($tot_faktisk * (1/$counter));
-        $data_avtalad_ME[] = floor($tot_avtalad * (1/$counter));
-    }   
+        $row_avtalad = mysqli_fetch_assoc($result_avtalad);
+        $data_avtalad_ME[] = $row_avtalad['avg_avtalad'];
+    }
+    // Get the average of faktisk bet.
+    $sql_faktisk = "SELECT AVG(FAKTISK_BETALTID) as avg_faktisk FROM betalningstiduppgift WHERE kategori='Medelföretag' AND skapat_datum = '$p'";
+    $result_faktisk = $conn->query($sql_faktisk);   
+    if(!$result_faktisk){
+        echo "Error: " . mysqli_error($conn);
+    }else{
+        $row_faktisk = mysqli_fetch_assoc($result_faktisk);  
+        $data_faktisk_ME[] = $row_faktisk['avg_faktisk'];  
+    }  
 }
 // reverse the arrays
 $labels_years_ME = array_reverse($labels_years_ME);
