@@ -2,9 +2,15 @@
 
 include_once("database/db_connection.php");
 $conn = OpenCon();
-$sql = "SELECT * FROM foretag"; // GET DATA 
+
+// get the latest period
+$theDate = date('Y').'-07-01';
+
+$sql = "SELECT FORETAG_ID, MIN(FAKTISK_BETALTID) as min_faktisk FROM betalningstiduppgift
+    INNER JOIN betalningstid ON WHERE "; // GET DATA 
 $result_foretag = $conn->query($sql);
 CloseCon($conn);
+
 
 
 ?>
