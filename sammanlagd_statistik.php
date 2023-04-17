@@ -12,7 +12,7 @@
         
     </div>
 
-
+    <script src="js/tot_chart.js"></script>
 
 </div>
 
