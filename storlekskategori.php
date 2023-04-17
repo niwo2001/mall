@@ -5,7 +5,7 @@
 
 <div class="infoWrapper">
 
-    <?php include("includes/display_kategorier.php") ?>
+    <?php include("get_data_files/display_kategorier.php") ?>
 
     <div>
         <div class = "box">
