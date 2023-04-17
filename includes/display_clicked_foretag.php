@@ -1,6 +1,7 @@
 <?php
     if(empty($_GET['id'])){
         echo "<h2 id='companyNameTitle'>Page Content</h2>";
+        // set the id to standard.
     }
     else{
         include_once("database/db_connection.php");
@@ -46,7 +47,7 @@
         CloseCon($conn);
         // Save data in a JSON format file
         $json_faktisk = json_encode(array("labels" => $labels_years, "data_faktisk" => $data_faktisk, "data_avtalad" => $data_avtalad));
-        $datafile = fopen("sample.txt", "w");
+        $datafile = fopen("samples/enskiltforetag_sample.txt", "w");
         fwrite($datafile, $json_faktisk);
         fclose($datafile);
     }

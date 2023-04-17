@@ -14,8 +14,8 @@
 
     <div class="right">
         <?php include("includes/display_clicked_foretag.php") ?>
-        <canvas id='myChart' width='450' height='350'></canvas>
-        <script src="chart.js"></script>
+        <div class='box'><canvas id='foretag_chart' width='450' height='350'></canvas></div>
+        <script src="enskiltforetag_chart.js"></script>
     </div>
 
 </div>

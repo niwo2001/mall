@@ -8,8 +8,8 @@ $(document).ready(function() {
   kategories.forEach((kategori, index) => {
   
   // NAMES
-  var textFile = kategori + "_sample.txt";
-  var chartID = kategori + "_chart";
+  var textFile = 'samples/' + kategori + '_sample.txt';
+  var chartID = kategori + '_chart';
   // COLORS
   let color1 = colors1[index];
   let color2 = colors2[index];

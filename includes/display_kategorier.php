@@ -61,7 +61,7 @@ $data_avtalad_MI = array_reverse($data_avtalad_MI);
 // Save data in a JSON format file
 $json_MI = json_encode(array("labels" => $labels_years_MI, "data_faktisk" => $data_faktisk_MI, "data_avtalad" => $data_avtalad_MI));
 //File
-$datafile_MI = fopen("Mi_sample.txt", "w");
+$datafile_MI = fopen("samples/Mi_sample.txt", "w");
 fwrite($datafile_MI, $json_MI);
 fclose($datafile_MI);
 //-------------------------------------------------------------------------------------------------------------------
@@ -103,7 +103,7 @@ $data_avtalad_SM = array_reverse($data_avtalad_SM);
 // Save data in a JSON format file
 $json_SM = json_encode(array("labels" => $labels_years_SM, "data_faktisk" => $data_faktisk_SM, "data_avtalad" => $data_avtalad_SM));
 //File
-$datafile_SM = fopen("Sm_sample.txt", "w");
+$datafile_SM = fopen("samples/Sm_sample.txt", "w");
 fwrite($datafile_SM, $json_SM);
 fclose($datafile_SM);
 //-------------------------------------------------------------------------------------------------------------------
@@ -145,7 +145,7 @@ $data_avtalad_ME = array_reverse($data_avtalad_ME);
 // Save data in a JSON format file
 $json_ME = json_encode(array("labels" => $labels_years_ME, "data_faktisk" => $data_faktisk_ME, "data_avtalad" => $data_avtalad_ME));
 //File
-$datafile_ME = fopen("Me_sample.txt", "w");
+$datafile_ME = fopen("samples/Me_sample.txt", "w");
 fwrite($datafile_ME, $json_ME);
 fclose($datafile_ME);
 //-------------------------------------------------------------------------------------------------------------------

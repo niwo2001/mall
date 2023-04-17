@@ -1,10 +1,10 @@
 $(document).ready(function() {
   // Get the canvas element
-  var ctx = document.getElementById('myChart').getContext('2d');
+  var ctx = document.getElementById('foretag_chart').getContext('2d');
   
   // Make an AJAX call to get the chart data
   $.ajax({
-    url: "sample.txt",
+    url: "samples/enskiltforetag_sample.txt",
     type: "GET",
     dataType: "json",
     success: function(data) {
@@ -14,12 +14,12 @@ $(document).ready(function() {
         labels: data.labels,
         datasets: [{
           label: 'Avtalad betaltid',
-          backgroundColor: '#FFAEFF',
+          backgroundColor: '#176CA1',
           data: data.data_avtalad
         },
         {
           label: 'Faktisk betaltid',
-          backgroundColor: '#FF00FF',
+          backgroundColor: '#EA7369',
           data: data.data_faktisk
         }
         ]
@@ -27,21 +27,7 @@ $(document).ready(function() {
       
       // Define the options for the chart
       var options = {
-        scales: {
-          yAxes: [{
-            ticks: {
-              beginAtZero: true
-            }
-          }]
-        }
-      };
-      
-      // Create the chart
-      var myChart = new Chart(ctx, {
-        type: 'bar',
-        data: chartData,
-        options: {options,
-          responsive: false,
+        responsive: false,
             scales: {
                 yAxes: [{
                     ticks: {
@@ -49,7 +35,13 @@ $(document).ready(function() {
                     }
                 }]
             }
-        }
+      };
+      
+      // Create the chart
+      var myChart = new Chart(ctx, {
+        type: 'bar',
+        data: chartData,
+        options: options
       });
       
       // Update and display the chart
