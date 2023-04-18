@@ -1,24 +1,24 @@
 <?php
 
-    include_once("database/db_connection.php");
-    $conn = OpenCon();
-    $id = 0;
-    if(empty($_GET['id'])){
-        // set the id to standard.
-        $sql_firstForetag = "SELECT MIN(ID) as min_id FROM foretag";
-        $result_firstForetag = $conn->query($sql_firstForetag);
-        if($result_firstForetag){
-            $row = mysqli_fetch_assoc($result_firstForetag);
-            $id = $row['min_id'];
-            echo "<a href='?id=".$id."'></a>"; 
-        }
-        else{
-            echo "Error: " . mysqli_error($conn);
-        }
+include_once("database/db_connection.php");
+$conn = OpenCon();
+$id = 0;
+if(empty($_GET['id'])){
+    // set the id to standard.
+    $sql_firstForetag = "SELECT MIN(ID) as min_id FROM foretag";
+    $result_firstForetag = $conn->query($sql_firstForetag);
+    if($result_firstForetag){
+        $row = mysqli_fetch_assoc($result_firstForetag);
+        $id = $row['min_id'];
+        echo "<a href='?id=".$id."'></a>"; 
     }
     else{
-        $id = $_GET['id'];
+        echo "Error: " . mysqli_error($conn);
     }
+}
+else{
+    $id = $_GET['id'];
+}
 
 //Print company name
 $sql_foretagNamn = "SELECT NAMN FROM foretag WHERE ID=$id";

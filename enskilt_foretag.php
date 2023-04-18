@@ -5,7 +5,7 @@
 
 <div class="infoWrapper">
 
-    <div class="left" style="background-color:#bbb;">
+    <div class="left">
         <h2>Sök enskilt företag</h2>
         <?php include("get_data_files/display_list_of_foretag.php");?>
         

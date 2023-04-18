@@ -14,12 +14,12 @@ $(document).ready(function() {
           labels: data.labels,
           datasets: [{
             label: 'Avtalad betaltid',
-            backgroundColor: '#176CA1',
+            backgroundColor: '#E6A86B',
             data: data.data_avtalad
           },
           {
             label: 'Faktisk betaltid',
-            backgroundColor: '#EA7369',
+            backgroundColor: '#7274AA',
             data: data.data_faktisk
           }
           ]
