@@ -6,23 +6,38 @@ $conn = OpenCon();
 // get the latest period
 $theDate = date('Y').'-07-01';
 
-$sql = "SELECT f.ID as FORETAG_ID, f.NAMN as NAMN, AVG(bu.FAKTISK_BETALTID) as AVG_FAKTISK_BETALTID, b.ID as BET_ID
+//SQL query
+$sql = "SELECT f.ID as FORETAG_ID, f.NAMN as NAMN, AVG(bu.FAKTISK_BETALTID) as AVG_FAKTISK, AVG(bu.AVTALAD_BETALTID) as AVG_AVTALAD, AVG(bu.ANDEL_FORSENADE_BETALNINGAR) as ANDELAR
     FROM foretag f
     INNER JOIN betalningstid b ON f.ID = b.FORETAG_ID
     INNER JOIN betalningstiduppgift bu ON b.ID = bu.BETALNINGSTID_ID
     WHERE bu.SKAPAT_DATUM = '$theDate'
     GROUP BY f.ID, b.ID
-    ORDER BY AVG_FAKTISK_BETALTID ASC";
+    ORDER BY AVG_FAKTISK ASC";
 $result_foretag = $conn->query($sql);
-CloseCon($conn);
+
+// display top 3 companies
 if($result_foretag){
     //Print company name
-    for($i = 0 ; ($i < 3) && ($res = $result_foretag->fetch_assoc()); $i++){
-        echo "<p>".$res['NAMN']." --- ".$res['AVG_FAKTISK_BETALTID']."</p>";
-    }
+    echo "<table id='topList'>";
+        echo "<tr> 
+            <th>Namn</th>
+            <th>Faktisk</th>
+            <th>Avtalad</th>
+            </tr>";
+            //<th>Andelar</th>
+        for($i = 0; ($i < 3) && ($res = $result_foretag->fetch_assoc()); $i++){
+            echo "<tr>";
+            echo "<td>".$res['NAMN']."</td>";
+            echo "<td>".$res['AVG_FAKTISK']."</td>";
+            echo "<td>".$res['AVG_AVTALAD']."</td>";
+            //echo "<td><canvas id=pieChart></canvas></td>";
+            echo "</tr>";
+        }
+    echo "</table>";
 }else{
-    echo "Error: " . mysqli_errno($conn);
+    echo "Error: " . mysqli_error($conn);
 }
-
+CloseCon($conn);
 
 ?>

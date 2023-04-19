@@ -8,7 +8,6 @@ $(document).ready(function() {
       type: "GET",
       dataType: "json",
       success: function(data) {
-          console.log(data);
         // Define the data for the chart using the returned data
         var chartData = {
           labels: data.labels,
@@ -21,8 +20,7 @@ $(document).ready(function() {
             label: 'Faktisk betaltid',
             backgroundColor: '#7274AA',
             data: data.data_faktisk
-          }
-          ]
+          }]
         };
         
         // Define the options for the chart
@@ -51,7 +49,7 @@ $(document).ready(function() {
         console.log(textStatus, errorThrown);
       }
     });
-  });
+});
   
   
   

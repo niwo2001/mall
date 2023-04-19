@@ -8,7 +8,6 @@ $(document).ready(function() {
     type: "GET",
     dataType: "json",
     success: function(data) {
-        console.log(data);
       // Define the data for the chart using the returned data
       var chartData = {
         labels: data.labels,

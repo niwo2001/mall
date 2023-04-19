@@ -24,41 +24,38 @@ while ($amount_of_periods > 0){
     $periods[] = $period;
     $theYear--;
 }
+$periods = array_reverse($periods);
+
+
 
 //MICRO--------------------------------------------------------------------------------------------------------------
 $labels_years_MI = array();
 $data_faktisk_MI = array();
 $data_avtalad_MI = array();
+$data_andel_MI = array();
 foreach($periods as $p){
     // save the years for labeling
     $labels_years_MI[] = substr($p, 0, 4);
 
     // Get the average of avtalad bet.
-    $sql_avtalad = "SELECT AVG(AVTALAD_BETALTID) as avg_avtalad FROM betalningstiduppgift WHERE kategori='Microföretag' AND skapat_datum = '$p'";
-    $result_avtalad = $conn->query($sql_avtalad);   
-    if(!$result_avtalad){
+    $sql = "SELECT AVG(AVTALAD_BETALTID) as avg_avtalad, AVG(FAKTISK_BETALTID) as avg_faktisk, AVG(ANDEL_FORSENADE_BETALNINGAR) as andelar FROM betalningstiduppgift WHERE kategori='Microföretag' AND skapat_datum = '$p'";
+    $result = $conn->query($sql);   
+    if(!$result){
         echo "Error: " . mysqli_error($conn);
     }else{
-        $row_avtalad = mysqli_fetch_assoc($result_avtalad);
-        $data_avtalad_MI[] = $row_avtalad['avg_avtalad'];
-    }
-    // Get the average of faktisk bet.
-    $sql_faktisk = "SELECT AVG(FAKTISK_BETALTID) as avg_faktisk FROM betalningstiduppgift WHERE kategori='Microföretag' AND skapat_datum = '$p'";
-    $result_faktisk = $conn->query($sql_faktisk);   
-    if(!$result_faktisk){
-        echo "Error: " . mysqli_error($conn);
-    }else{
-        $row_faktisk = mysqli_fetch_assoc($result_faktisk);  
-        $data_faktisk_MI[] = $row_faktisk['avg_faktisk'];  
+        $row = mysqli_fetch_assoc($result);
+        $data_avtalad_MI[] = $row['avg_avtalad'];
+        $data_faktisk_MI[] = $row['avg_faktisk'];
+        $data_andel_MI[] = $row['andelar'];
     }
 }
-// reverse the arrays
-$labels_years_MI = array_reverse($labels_years_MI);
-$data_faktisk_MI = array_reverse($data_faktisk_MI);
-$data_avtalad_MI = array_reverse($data_avtalad_MI);
-// Save data in a JSON format file
+// Save andelar data 
+$json_andelar_MI = json_encode(array('andel' => $data_andel_MI[2], 'andel_ejsen' => (100-$data_andel_MI[2])));
+$datafile_andel_MI = fopen('samples/Mi_andel_sample.txt', 'w');
+fwrite($datafile_andel_MI, $json_andelar_MI);
+fclose($datafile_andel_MI);
+// Save faktisk and avtalad data 
 $json_MI = json_encode(array("labels" => $labels_years_MI, "data_faktisk" => $data_faktisk_MI, "data_avtalad" => $data_avtalad_MI));
-//File
 $datafile_MI = fopen("samples/Mi_sample.txt", "w");
 fwrite($datafile_MI, $json_MI);
 fclose($datafile_MI);
@@ -70,36 +67,30 @@ fclose($datafile_MI);
 $labels_years_SM = array();
 $data_faktisk_SM = array();
 $data_avtalad_SM = array();
+$data_andel_SM = array();
 foreach($periods as $p){
     // save the years for labeling
     $labels_years_SM[] = substr($p, 0, 4);
 
     // Get the average of avtalad bet.
-    $sql_avtalad = "SELECT AVG(AVTALAD_BETALTID) as avg_avtalad FROM betalningstiduppgift WHERE kategori='Småföretag' AND skapat_datum = '$p'";
-    $result_avtalad = $conn->query($sql_avtalad);   
-    if(!$result_avtalad){
+    $sql = "SELECT AVG(AVTALAD_BETALTID) as avg_avtalad, AVG(FAKTISK_BETALTID) as avg_faktisk, AVG(ANDEL_FORSENADE_BETALNINGAR) as andelar  FROM betalningstiduppgift WHERE kategori='Småföretag' AND skapat_datum = '$p'";
+    $result = $conn->query($sql);   
+    if(!$result){
         echo "Error: " . mysqli_error($conn);
     }else{
-        $row_avtalad = mysqli_fetch_assoc($result_avtalad);
-        $data_avtalad_SM[] = $row_avtalad['avg_avtalad'];
+        $row = mysqli_fetch_assoc($result);
+        $data_avtalad_SM[] = $row['avg_avtalad'];
+        $data_faktisk_SM[] = $row['avg_faktisk'];
+        $data_andel_SM[] = $row['andelar'];
     }
-    // Get the average of faktisk bet.
-    $sql_faktisk = "SELECT AVG(FAKTISK_BETALTID) as avg_faktisk FROM betalningstiduppgift WHERE kategori='Småföretag' AND skapat_datum = '$p'";
-    $result_faktisk = $conn->query($sql_faktisk);   
-    if(!$result_faktisk){
-        echo "Error: " . mysqli_error($conn);
-    }else{
-        $row_faktisk = mysqli_fetch_assoc($result_faktisk);  
-        $data_faktisk_SM[] = $row_faktisk['avg_faktisk'];  
-    } 
 }
-// reverse the arrays
-$labels_years_SM = array_reverse($labels_years_SM);
-$data_faktisk_SM = array_reverse($data_faktisk_SM);
-$data_avtalad_SM = array_reverse($data_avtalad_SM);
-// Save data in a JSON format file
+// Save andelar data 
+$json_andelar_SM = json_encode(array('andel' => $data_andel_SM[2], 'andel_ejsen' => (100-$data_andel_SM[2])));
+$datafile_andel_SM = fopen('samples/Sm_andel_sample.txt', 'w');
+fwrite($datafile_andel_SM, $json_andelar_SM);
+fclose($datafile_andel_SM);
+// Save faktisk and avtalad data 
 $json_SM = json_encode(array("labels" => $labels_years_SM, "data_faktisk" => $data_faktisk_SM, "data_avtalad" => $data_avtalad_SM));
-//File
 $datafile_SM = fopen("samples/Sm_sample.txt", "w");
 fwrite($datafile_SM, $json_SM);
 fclose($datafile_SM);
@@ -111,36 +102,30 @@ fclose($datafile_SM);
 $labels_years_ME = array();
 $data_faktisk_ME= array();
 $data_avtalad_ME = array();
+$data_andel_ME = array();
 foreach($periods as $p){
     // save the years for labeling
     $labels_years_ME[] = substr($p, 0, 4);
 
     // Get the average of avtalad bet.
-    $sql_avtalad = "SELECT AVG(AVTALAD_BETALTID) as avg_avtalad FROM betalningstiduppgift WHERE kategori='Medelföretag' AND skapat_datum = '$p'";
-    $result_avtalad = $conn->query($sql_avtalad);   
-    if(!$result_avtalad){
+    $sql = "SELECT AVG(AVTALAD_BETALTID) as avg_avtalad, AVG(FAKTISK_BETALTID) as avg_faktisk, AVG(ANDEL_FORSENADE_BETALNINGAR) as andelar  FROM betalningstiduppgift WHERE kategori='Medelföretag' AND skapat_datum = '$p'";
+    $result = $conn->query($sql);   
+    if(!$result){
         echo "Error: " . mysqli_error($conn);
     }else{
-        $row_avtalad = mysqli_fetch_assoc($result_avtalad);
-        $data_avtalad_ME[] = $row_avtalad['avg_avtalad'];
+        $row = mysqli_fetch_assoc($result);
+        $data_avtalad_ME[] = $row['avg_avtalad'];
+        $data_faktisk_ME[] = $row['avg_faktisk'];
+        $data_andel_ME[] = $row['andelar'];
     }
-    // Get the average of faktisk bet.
-    $sql_faktisk = "SELECT AVG(FAKTISK_BETALTID) as avg_faktisk FROM betalningstiduppgift WHERE kategori='Medelföretag' AND skapat_datum = '$p'";
-    $result_faktisk = $conn->query($sql_faktisk);   
-    if(!$result_faktisk){
-        echo "Error: " . mysqli_error($conn);
-    }else{
-        $row_faktisk = mysqli_fetch_assoc($result_faktisk);  
-        $data_faktisk_ME[] = $row_faktisk['avg_faktisk'];  
-    }  
 }
-// reverse the arrays
-$labels_years_ME = array_reverse($labels_years_ME);
-$data_faktisk_ME = array_reverse($data_faktisk_ME);
-$data_avtalad_ME = array_reverse($data_avtalad_ME);
-// Save data in a JSON format file
+// Save andelar data 
+$json_andelar_ME = json_encode(array('andel_sen' => $data_andel_ME[2], 'andel_ejsen' => (100-$data_andel_ME[2])));
+$datafile_andel_ME = fopen('samples/Me_andel_sample.txt', 'w');
+fwrite($datafile_andel_ME, $json_andelar_ME);
+fclose($datafile_andel_ME);
+// Save faktisk and avtalad data 
 $json_ME = json_encode(array("labels" => $labels_years_ME, "data_faktisk" => $data_faktisk_ME, "data_avtalad" => $data_avtalad_ME));
-//File
 $datafile_ME = fopen("samples/Me_sample.txt", "w");
 fwrite($datafile_ME, $json_ME);
 fclose($datafile_ME);
@@ -189,7 +174,7 @@ CloseCon($conn);
             $periods_start[] = $p_start;
             $theYear--;
         }
-
+        $periods_start = array_reverse($periods_start);
         $labels_years = [];
         $data_faktisk = [];
         $data_avtalad = [];
@@ -220,11 +205,6 @@ CloseCon($conn);
             }
             
         }
-
-        // reverse the arrays
-        $labels_years = array_reverse($labels_years);
-        $data_faktisk = array_reverse($data_faktisk);
-        $data_avtalad = array_reverse($data_avtalad);
         
         // Save data in a JSON format file
         $json = json_encode(array("labels" => $labels_years, "data_faktisk" => $data_faktisk, "data_avtalad" => $data_avtalad));

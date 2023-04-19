@@ -15,6 +15,9 @@
     <div id='ranking'>
         <h3>Top tre företag som betalar fakturor mest i tid!</h3>
         <?php include("get_data_files/list_top.php") ?>
+        <script src="js/pie_chart.js">
+            
+        </script>
     </div>
 
     <script src="js/tot_chart.js"></script>
