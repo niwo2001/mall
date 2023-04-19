@@ -1,10 +1,14 @@
-$(document).ready(function() {
+
+function printBarChart(canvasId, textFile, color1, color2){
+
+  $(document).ready(function() {
+
     // Get the canvas element
-    var ctx = document.getElementById('tot_chart').getContext('2d');
+    var ctx = document.getElementById(canvasId).getContext('2d');
     
     // Make an AJAX call to get the chart data
     $.ajax({
-      url: "samples/tot_sample.txt",
+      url: textFile,
       type: "GET",
       dataType: "json",
       success: function(data) {
@@ -13,25 +17,27 @@ $(document).ready(function() {
           labels: data.labels,
           datasets: [{
             label: 'Avtalad betaltid',
-            backgroundColor: '#E6A86B',
+            backgroundColor: color1,
             data: data.data_avtalad
           },
           {
             label: 'Faktisk betaltid',
-            backgroundColor: '#7274AA',
+            backgroundColor: color2,
             data: data.data_faktisk
-          }]
+          }
+          ]
         };
         
         // Define the options for the chart
         var options = {
           responsive: false,
               scales: {
-                  yAxes: [{
-                      ticks: {
-                          beginAtZero:true
-                      }
-                  }]
+                yAxes: [{
+                  ticks: {
+                    beginAtZero:true,
+                    suggestedMax: 70
+                  }
+                }]
               }
         };
         
@@ -48,8 +54,8 @@ $(document).ready(function() {
       error: function(jqXHR, textStatus, errorThrown) {
         console.log(textStatus, errorThrown);
       }
-    });
+  });
+  
 });
-  
-  
-  
+
+}

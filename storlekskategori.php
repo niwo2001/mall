@@ -25,7 +25,7 @@
         </div>
     </div>
 
-    <script src="js/kategorier_chart.js"></script>
+    <script src="js/printBarChart.js"></script>
     <script src="js/pie_chart.js"></script>
     <script>
         printBarChart('Mi_chart', 'samples/Mi_sample.txt', '#A848C7', '#18A4D5' );
