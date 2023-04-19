@@ -21,44 +21,41 @@ while ($amount_of_periods > 0){
     $periods[] = $period;
     $theYear--;
 }
+$periods = array_reverse($periods);
 
-$labels_years_MI = array();
-$data_faktisk_MI = array();
-$data_avtalad_MI = array();
+$labels_years = array();
+$data_faktisk = array();
+$data_avtalad = array();
+$data_andel = array();
+
 foreach($periods as $p){
     // save the years for labeling
-    $labels_years_MI[] = substr($p, 0, 4);
+    $labels_years[] = substr($p, 0, 4);
 
     // Get the average of avtalad bet.
-    $sql_avtalad = "SELECT AVG(AVTALAD_BETALTID) as avg_avtalad FROM betalningstiduppgift WHERE skapat_datum = '$p'";
-    $result_avtalad = $conn->query($sql_avtalad);   
-    if(!$result_avtalad){
-        echo "Error: " . mysqli_error($conn);
+    $sql = "SELECT AVG(AVTALAD_BETALTID) as avg_avtalad, AVG(FAKTISK_BETALTID) as avg_faktisk, AVG(ANDEL_FORSENADE_BETALNINGAR) as andelar FROM betalningstiduppgift WHERE skapat_datum = '$p'";
+    $result = $conn->query($sql);
+    if($result){
+        $row = mysqli_fetch_assoc($result);
+        $data_avtalad[] = $row['avg_avtalad'];
+        $data_faktisk[] = $row['avg_faktisk'];
+        $data_andel[] = $row['andelar'];
     }else{
-        $row_avtalad = mysqli_fetch_assoc($result_avtalad);
-        $data_avtalad_MI[] = $row_avtalad['avg_avtalad'];
-    }
-    // Get the average of faktisk bet.
-    $sql_faktisk = "SELECT AVG(FAKTISK_BETALTID) as avg_faktisk FROM betalningstiduppgift WHERE skapat_datum = '$p'";
-    $result_faktisk = $conn->query($sql_faktisk);   
-    if(!$result_faktisk){
         echo "Error: " . mysqli_error($conn);
-    }else{
-        $row_faktisk = mysqli_fetch_assoc($result_faktisk);  
-        $data_faktisk_MI[] = $row_faktisk['avg_faktisk'];  
     }
     
 }
-// reverse the arrays
-$labels_years_MI = array_reverse($labels_years_MI);
-$data_faktisk_MI = array_reverse($data_faktisk_MI);
-$data_avtalad_MI = array_reverse($data_avtalad_MI);
+
+// Save andelar data 
+$json_andelar = json_encode(array('andel_sen' => $data_andel[2], 'andel_ejsen' => (100-$data_andel[2])));
+$datafile_andel = fopen('samples/tot_andel_sample.txt', 'w');
+fwrite($datafile_andel, $json_andelar);
+fclose($datafile_andel);
 // Save data in a JSON format file
-$json_MI = json_encode(array("labels" => $labels_years_MI, "data_faktisk" => $data_faktisk_MI, "data_avtalad" => $data_avtalad_MI));
-//File
-$datafile_MI = fopen("samples/Tot_sample.txt", "w");
-fwrite($datafile_MI, $json_MI);
-fclose($datafile_MI);
+$json = json_encode(array("labels" => $labels_years, "data_faktisk" => $data_faktisk, "data_avtalad" => $data_avtalad));
+$datafile = fopen("samples/Tot_sample.txt", "w");
+fwrite($datafile, $json);
+fclose($datafile);
 //-------------------------------------------------------------------------------------------------------------------
 
 CloseCon($conn);

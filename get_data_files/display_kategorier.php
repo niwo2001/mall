@@ -40,17 +40,17 @@ foreach($periods as $p){
     // Get the average of avtalad bet.
     $sql = "SELECT AVG(AVTALAD_BETALTID) as avg_avtalad, AVG(FAKTISK_BETALTID) as avg_faktisk, AVG(ANDEL_FORSENADE_BETALNINGAR) as andelar FROM betalningstiduppgift WHERE kategori='Microföretag' AND skapat_datum = '$p'";
     $result = $conn->query($sql);   
-    if(!$result){
-        echo "Error: " . mysqli_error($conn);
-    }else{
+    if($result){
         $row = mysqli_fetch_assoc($result);
         $data_avtalad_MI[] = $row['avg_avtalad'];
         $data_faktisk_MI[] = $row['avg_faktisk'];
         $data_andel_MI[] = $row['andelar'];
+    }else{
+        echo "Error: " . mysqli_error($conn);
     }
 }
 // Save andelar data 
-$json_andelar_MI = json_encode(array('andel' => $data_andel_MI[2], 'andel_ejsen' => (100-$data_andel_MI[2])));
+$json_andelar_MI = json_encode(array('andel_sen' => $data_andel_MI[2], 'andel_ejsen' => (100-$data_andel_MI[2])));
 $datafile_andel_MI = fopen('samples/Mi_andel_sample.txt', 'w');
 fwrite($datafile_andel_MI, $json_andelar_MI);
 fclose($datafile_andel_MI);
@@ -75,17 +75,17 @@ foreach($periods as $p){
     // Get the average of avtalad bet.
     $sql = "SELECT AVG(AVTALAD_BETALTID) as avg_avtalad, AVG(FAKTISK_BETALTID) as avg_faktisk, AVG(ANDEL_FORSENADE_BETALNINGAR) as andelar  FROM betalningstiduppgift WHERE kategori='Småföretag' AND skapat_datum = '$p'";
     $result = $conn->query($sql);   
-    if(!$result){
-        echo "Error: " . mysqli_error($conn);
-    }else{
+    if($result){
         $row = mysqli_fetch_assoc($result);
         $data_avtalad_SM[] = $row['avg_avtalad'];
         $data_faktisk_SM[] = $row['avg_faktisk'];
         $data_andel_SM[] = $row['andelar'];
+    }else{
+        echo "Error: " . mysqli_error($conn);
     }
 }
 // Save andelar data 
-$json_andelar_SM = json_encode(array('andel' => $data_andel_SM[2], 'andel_ejsen' => (100-$data_andel_SM[2])));
+$json_andelar_SM = json_encode(array('andel_sen' => $data_andel_SM[2], 'andel_ejsen' => (100-$data_andel_SM[2])));
 $datafile_andel_SM = fopen('samples/Sm_andel_sample.txt', 'w');
 fwrite($datafile_andel_SM, $json_andelar_SM);
 fclose($datafile_andel_SM);
@@ -110,13 +110,13 @@ foreach($periods as $p){
     // Get the average of avtalad bet.
     $sql = "SELECT AVG(AVTALAD_BETALTID) as avg_avtalad, AVG(FAKTISK_BETALTID) as avg_faktisk, AVG(ANDEL_FORSENADE_BETALNINGAR) as andelar  FROM betalningstiduppgift WHERE kategori='Medelföretag' AND skapat_datum = '$p'";
     $result = $conn->query($sql);   
-    if(!$result){
-        echo "Error: " . mysqli_error($conn);
-    }else{
+    if($result){
         $row = mysqli_fetch_assoc($result);
         $data_avtalad_ME[] = $row['avg_avtalad'];
         $data_faktisk_ME[] = $row['avg_faktisk'];
         $data_andel_ME[] = $row['andelar'];
+    }else{
+        echo "Error: " . mysqli_error($conn);
     }
 }
 // Save andelar data 

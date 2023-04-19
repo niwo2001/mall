@@ -33,6 +33,7 @@ $years = 3; //controll how many years are displayed
 $labels_years = array();
 $data_faktisk = array();
 $data_avtalad = array();
+$data_andel = array();
 
 while(($row = $result_yearsFromForetag->fetch_assoc()) && ($years > 0)){
     $years = $years-1;
@@ -41,18 +42,23 @@ while(($row = $result_yearsFromForetag->fetch_assoc()) && ($years > 0)){
     
     $betYear_id = $row["ID"];
     // avtalad
-    $sql_avtalad = "SELECT AVG(AVTALAD_BETALTID) as avg_avtalad FROM betalningstiduppgift WHERE BETALNINGSTID_ID = $betYear_id";
-    $result_avtalad = $conn->query($sql_avtalad);
-    $row_avtalad = mysqli_fetch_assoc($result_avtalad);
-    $data_avtalad[] = $row_avtalad['avg_avtalad'];
-    // faktisk
-    $sql_faktisk = "SELECT AVG(FAKTISK_BETALTID) as avg_faktisk FROM betalningstiduppgift WHERE BETALNINGSTID_ID = $betYear_id";
-    $result_faktisk = $conn->query($sql_faktisk);
-    if($result_faktisk)
-    $row_faktisk = mysqli_fetch_assoc($result_faktisk);
-    $data_faktisk[] = $row_faktisk['avg_faktisk'];
+    $sql = "SELECT AVG(AVTALAD_BETALTID) as avg_avtalad, AVG(FAKTISK_BETALTID) as avg_faktisk, AVG(ANDEL_FORSENADE_BETALNINGAR) as andelar FROM betalningstiduppgift WHERE BETALNINGSTID_ID = $betYear_id";
+    $result = $conn->query($sql);
+    if($result){
+        $row = mysqli_fetch_assoc($result);
+        $data_avtalad[] = $row['avg_avtalad'];
+        $data_faktisk[] = $row['avg_faktisk'];
+        $data_andel[] = $row['andelar'];
+    }else{
+        echo "Error: " . mysqli_error($conn);
+    }
 }
 CloseCon($conn);
+// Save andelar data 
+$json_andelar = json_encode(array('andel_sen' => $data_andel[2], 'andel_ejsen' => (100-$data_andel[2])));
+$datafile_andel = fopen('samples/enskiltforetag_andel_sample.txt', 'w');
+fwrite($datafile_andel, $json_andelar);
+fclose($datafile_andel);
 // Save data in a JSON format file
 $json_faktisk = json_encode(array("labels" => $labels_years, "data_faktisk" => $data_faktisk, "data_avtalad" => $data_avtalad));
 $datafile = fopen("samples/enskiltforetag_sample.txt", "w");

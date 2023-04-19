@@ -42,19 +42,22 @@ function printBarChart(canvasId, textFile, color1, color2){
         };
         
         // Create the chart
-        var myChart = new Chart(ctx, {
+        var theChart = new Chart(ctx, {
           type: 'bar',
           data: chartData,
           options: options
         });
         
         // Update and display the chart
-        myChart.update();
+        theChart.update();
       },
       error: function(jqXHR, textStatus, errorThrown) {
         console.log(textStatus, errorThrown);
       }
   });
+
+ 
+
   
 });
 
