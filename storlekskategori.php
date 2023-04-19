@@ -28,9 +28,12 @@
     <script src="js/kategorier_chart.js"></script>
     <script src="js/pie_chart.js"></script>
     <script>
-        printPie('Mi_pie', 'Mi_andel_sample.txt');
-        printPie('Sm_pie', 'Sm_andel_sample.txt');
-        printPie('Me_pie', 'Me_andel_sample.txt');
+        printBarChart('Mi_chart', 'samples/Mi_sample.txt', '#A848C7', '#18A4D5' );
+        printBarChart('Sm_chart', 'samples/Sm_sample.txt', '#D149AB', '#E67930' );
+        printBarChart('Me_chart', 'samples/Me_sample.txt', '#E1B739', '#1CDBB6' );
+        printPie('Mi_pie', 'samples/Mi_andel_sample.txt');
+        printPie('Sm_pie', 'samples/Sm_andel_sample.txt');
+        printPie('Me_pie', 'samples/Me_andel_sample.txt');
     </script>
 
 </div>
