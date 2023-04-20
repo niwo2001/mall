@@ -7,19 +7,31 @@
 
     <div>
         <div class = "box">
-            <h3>Microföretag (0-9 anställda)</h3>
-            <canvas id='Mi_chart' width='300' height='250'></canvas>
-            <canvas id='Mi_pie' style="height:40px; width:80px"></canvas>
+            <div class='kategori_bar'>
+                <h3>Microföretag (0-9 anställda)</h3>
+                <canvas id='Mi_chart' width='300' height='250'></canvas>
+            </div>
+            <div>
+                <canvas id='Mi_pie' style="height:40px; width:80px"></canvas>
+            </div>
         </div>  
-        <div class = "box">  
-            <h3>Småföretag (10-49 anställda)</h3>
-            <canvas id='Sm_chart' width='300' height='250'></canvas>
-            <canvas id='Sm_pie' style="height:40px; width:80px"></canvas>
+        <div class = "box">
+            <div class='kategori_bar' id='kat_sma_bar'>  
+                <h3>Småföretag (10-49 anställda)</h3>
+                <canvas id='Sm_chart' width='300' height='250'></canvas>
+            </div>
+            <div id='kat_sma_pie'>
+                <canvas id='Sm_pie' style="height:40px; width:80px"></canvas>
+            </div>
         </div>
         <div class = "box">
-            <h3>Medelföretag (50-249 anställda)</h3>
-            <canvas id='Me_chart' width='300' height='250'></canvas>
-            <canvas id='Me_pie' style="height:40px; width:80px"></canvas>
+            <div class='kategori_bar'>
+                <h3>Medelföretag (50-249 anställda)</h3>
+                <canvas id='Me_chart' width='300' height='250'></canvas>
+            </div>
+            <div>
+                <canvas id='Me_pie' style="height:40px; width:80px"></canvas>
+            </div>
         </div>
     </div>
 
