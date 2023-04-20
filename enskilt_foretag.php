@@ -19,9 +19,12 @@
             <canvas id='foretag_pie' style="height:40px; width:80px"></canvas>
         </div>
         <div class='enskiltforetag_kategorier'>
-            <canvas id='foretag_micro' style="height:20px; width:40px"></canvas>
-            <canvas id='foretag_sma' style="height:20px; width:40px"></canvas>
-            <canvas id='foretag_medel' style="height:20px; width:40px"></canvas>
+            <h3>Microföretag</h3>
+            <canvas id='foretag_mi' style="height:200px; width:200px"></canvas>
+            <h3>Småföretag</h3>
+            <canvas id='foretag_sm' style="height:200px; width:200px"></canvas>
+            <h3>Medelföretag</h3>
+            <canvas id='foretag_me' style="height:200px; width:200px"></canvas>
         </div>
 
         <script src="js/printBarChart.js"></script>
@@ -31,9 +34,9 @@
             printPieChart('foretag_pie', 'samples/enskiltforetag_andel_sample.txt');
             
             //kategorier
-            printBarChart('foretag_micro', 'samples/enskiltforetag_micro_sample.txt', '#176CA1', '#EA7369')
-            printBarChart('foretag_sma', 'samples/enskiltforetag_sma_sample.txt', '#176CA1', '#EA7369')
-            printBarChart('foretag_medel', 'samples/enskiltforetag_medel_sample.txt', '#176CA1', '#EA7369')
+            printBarChart('foretag_mi', 'samples/enskiltforetag_cat_mi_sample.txt', '#A848C7', '#18A4D5')
+            printBarChart('foretag_sm', 'samples/enskiltforetag_cat_sm_sample.txt', '#D149AB', '#E67930')
+            printBarChart('foretag_me', 'samples/enskiltforetag_cat_me_sample.txt', '#E1B739', '#1CDBB6')
         </script>
     </div>
 
