@@ -64,60 +64,91 @@
     display: flex;
 }
 
-.left {
-    flex: 30%;
+/* ENSKILT FÖRETAG */
+
+  .left {
+    height: 700px;
+    flex: 15%;
     padding: 15px 0;
     background-color: #ebebeb;
-    border-color: #A8A8A8 2px;
+    border: black 2px;
+    }
+    .left h2 {
+      padding-left: 12px;
+    }
+    /* Style the search box */
+    #searchField {
+      margin-left: 12px;
+      width: 150px;
+      font-size: 18px;
+      padding: 11px;
+      border: 1px solid #ddd;
+      border-radius: 15px;
+    }
+    /* Style the navigation  inside the left column */
+    #searchList {
+      height: 600px;
+      overflow-y:scroll;
+      list-style-type: none;
+      padding: 0;
+      margin: 0;
+    }
+    #searchList li a {
+      padding: 5px;
+      padding-left: 12px;
+      text-decoration: none;
+      color: black;
+      display: block;
+    }
+    #searchList li a:hover {
+      background-color: white;
   }
-  .left h2 {
-    padding-left: 12px;
-}
-.right {
+    
+  .right {
     flex: 65%;
     padding: 15px;
-}
+    }    
+    .containerrr{
+      display: flex;
+      flex-wrap: wrap;
+    }
+    .box1, .box2 {
+      text-align: center;
+      float: left;
+      flex-basis: 40%;
+      border: 1px solid black;
+      border-left: none;
+      border-right: none;
+      border-top: none;
+      padding:15px;
+    }
+    .box1{
+      border: 1px solid black;
+      border-left: none;
+      border-top: none;
+    }
+    .box3 {
+      flex-basis: 100%;
+    }
+    .cat{
+      float:left;
+      text-align: center;
+    }
 
-/* Style the search box */
-#searchField {
-    margin-left: 12px;
-    font-size: 18px;
-    padding: 11px;
-    border: 1px solid #ddd;
-  }
-  /* Style the navigation  inside the left column */
-  #searchList {
-    height: 350px;
-    overflow-y: auto;
-    list-style-type: none;
-    padding: 0;
-    margin: 0;
-  }
-  #searchList li a {
-    padding: 5px;
-    padding-left: 12px;
-    text-decoration: none;
-    color: black;
-    display: block
-  }
-  #searchList li a:hover {
-    background-color: white;
-  }
 
-/* Kategorier - boxar */ 
+/* KATEGORIER - boxar */ 
 .box {
-    float:left;
-    padding-right: 12px;
-}
-.box h3{
-  padding-left: 25px;
-}
-.box canvas{
-  border-radius: 15px;
-}
-
-#tot_box h3{
-  padding-left: 5px;
+  float:left;
+  padding-right: 12px;
+  }
+  .box h3{
+    padding-left: 25px;
+  }
+  .box canvas{
+    border-radius: 15px;
+  }
+  #tot_box h3{
+    padding-left: 5px;
 }
 
 /* Sammanlagd statistik - top list*/
@@ -148,7 +179,7 @@
 
   #topList tr td:last-child {
     border-right: none;
-  }
+}
 
 
 
