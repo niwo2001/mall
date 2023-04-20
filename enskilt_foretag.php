@@ -31,6 +31,9 @@
             printPieChart('foretag_pie', 'samples/enskiltforetag_andel_sample.txt');
             
             //kategorier
+            printBarChart('foretag_micro', 'samples/enskiltforetag_micro_sample.txt', '#176CA1', '#EA7369')
+            printBarChart('foretag_sma', 'samples/enskiltforetag_sma_sample.txt', '#176CA1', '#EA7369')
+            printBarChart('foretag_medel', 'samples/enskiltforetag_medel_sample.txt', '#176CA1', '#EA7369')
         </script>
     </div>
 
