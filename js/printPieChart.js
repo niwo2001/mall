@@ -23,7 +23,7 @@ function printPieChart(chartId, filename){
         // Define the options for the chart
         var options = {
             tooltips: {
-                enabled: false
+                enabled: true
                 },
             plugins: {
                 datalabels: {
