@@ -23,7 +23,6 @@ else{
 
 // SET VARIABLES
 $amount_of_periods = 3;
-
 // Get dates
 $periods = array();
 $todaysDate = date('m-d');
@@ -48,6 +47,7 @@ $data_faktisk = array();
 $data_avtalad = array();
 $data_andel = array();
 // kategorier
+$kategorier = ['MicroFöretag','Småföretag','Medelföretag'];
 $data_faktisk_MI = array();
 $data_avtalad_MI = array();
 $data_faktisk_SM = array();
@@ -75,53 +75,31 @@ foreach($periods as $p){
     }else{
         echo "Error: " . mysqli_error($conn);
     }
-
-    // data for each category for enskilt foretag
-    //MICRO
-    $sql_cat_mi = "SELECT f.ID as FORETAG_ID, f.NAMN as NAMN, bu.KATEGORI, bu.FAKTISK_BETALTID as FAKTISK, bu.AVTALAD_BETALTID as AVTALAD, bu.ANDEL_FORSENADE_BETALNINGAR as ANDELAR
+    
+    foreach ($kategorier as $kategori){
+        $sql_cat_sm = "SELECT f.ID as FORETAG_ID, f.NAMN as NAMN, bu.KATEGORI, bu.FAKTISK_BETALTID as FAKTISK, bu.AVTALAD_BETALTID as AVTALAD, bu.ANDEL_FORSENADE_BETALNINGAR as ANDELAR
         FROM foretag f
         INNER JOIN betalningstid b ON f.ID = b.FORETAG_ID
         INNER JOIN betalningstiduppgift bu ON b.ID = bu.BETALNINGSTID_ID
         WHERE bu.SKAPAT_DATUM = '$p'
         AND f.ID = '$id'
-        AND bu.KATEGORI = 'Microföretag'";
-    $result_cat_mi = $conn->query($sql_cat_mi);
-    if($result_cat_mi){
-        $row = mysqli_fetch_assoc($result_cat_mi);
-        $data_avtalad_MI[] = $row['AVTALAD'];
-        $data_faktisk_MI[] = $row['FAKTISK'];
-    }else{
-        echo "Error: " . mysqli_error($conn);
-    } //SMÅ
-    $sql_cat_sm = "SELECT f.ID as FORETAG_ID, f.NAMN as NAMN, bu.KATEGORI, bu.FAKTISK_BETALTID as FAKTISK, bu.AVTALAD_BETALTID as AVTALAD, bu.ANDEL_FORSENADE_BETALNINGAR as ANDELAR
-        FROM foretag f
-        INNER JOIN betalningstid b ON f.ID = b.FORETAG_ID
-        INNER JOIN betalningstiduppgift bu ON b.ID = bu.BETALNINGSTID_ID
-        WHERE bu.SKAPAT_DATUM = '$p'
-        AND f.ID = '$id'
-        AND bu.KATEGORI = 'Småföretag'";
-    $result_cat_sm = $conn->query($sql_cat_sm);
-    if($result_cat_sm){
-        $row = mysqli_fetch_assoc($result_cat_sm);
-        $data_avtalad_SM[] = $row['AVTALAD'];
-        $data_faktisk_SM[] = $row['FAKTISK'];
-    }else{
-        echo "Error: " . mysqli_error($conn);
-    } // MEDEL
-    $sql_cat_me = "SELECT f.ID as FORETAG_ID, f.NAMN as NAMN, bu.KATEGORI, bu.FAKTISK_BETALTID as FAKTISK, bu.AVTALAD_BETALTID as AVTALAD, bu.ANDEL_FORSENADE_BETALNINGAR as ANDELAR
-        FROM foretag f
-        INNER JOIN betalningstid b ON f.ID = b.FORETAG_ID
-        INNER JOIN betalningstiduppgift bu ON b.ID = bu.BETALNINGSTID_ID
-        WHERE bu.SKAPAT_DATUM = '$p'
-        AND f.ID = '$id'
-        AND bu.KATEGORI = 'Medelföretag'";
-    $result_cat_me = $conn->query($sql_cat_me);
-    if($result_cat_me){
-        $row = mysqli_fetch_assoc($result_cat_me);
-        $data_avtalad_ME[] = $row['AVTALAD'];
-        $data_faktisk_ME[] = $row['FAKTISK'];
-    }else{
-        echo "Error: " . mysqli_error($conn);
+        AND bu.KATEGORI = '$kategori'";
+        $result_cat_sm = $conn->query($sql_cat_sm);
+        if($result_cat_sm){
+            $row = mysqli_fetch_assoc($result_cat_sm);
+            if($kategori == 'MicroFöretag'){
+                $data_avtalad_MI[] = $row['AVTALAD'];
+                $data_faktisk_MI[] = $row['FAKTISK'];
+            }elseif($kategori == 'Småföretag'){
+                $data_avtalad_SM[] = $row['AVTALAD'];
+                $data_faktisk_SM[] = $row['FAKTISK'];
+            }elseif($kategori == 'Medelföretag'){
+                $data_avtalad_ME[] = $row['AVTALAD'];
+                $data_faktisk_ME[] = $row['FAKTISK'];
+            }
+        }else{
+            echo "Error: " . mysqli_error($conn);
+        } 
     }
 
 }
@@ -129,8 +107,8 @@ foreach($periods as $p){
 // print company name
 echo "<h2>".$name."</h2>";
 
-// Save andelar data 
-$json_andelar = json_encode(array('andel_sen' => $data_andel[2], 'andel_ejsen' => $data_andel[2]));
+// Save andelar data in a JSON format file
+$json_andelar = json_encode(array('andel_sen' => $data_andel[2], 'andel_ejsen' => 100-$data_andel[2]));
 $datafile_andel = fopen('samples/enskiltforetag_andel_sample.txt', 'w');
 fwrite($datafile_andel, $json_andelar);
 fclose($datafile_andel);
