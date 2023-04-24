@@ -39,9 +39,9 @@
     <script src="js/printBarChart.js"></script>
     <script src="js/printPieChart.js"></script>
     <script>
-        printBarChart('Mi_chart', 'samples/Mi_sample.txt', '#E1B739', '#1CDBB6' );
-        printBarChart('Sm_chart', 'samples/Sm_sample.txt', '#D149AB', '#E67930' );
-        printBarChart('Me_chart', 'samples/Me_sample.txt', '#A848C7', '#18A4D5' );
+        printBarChart('Mi_chart', 'samples/Mi_sample.txt', 'rgba(178,114,0,0.2)', 'rgb(178,114,0)' );
+        printBarChart('Sm_chart', 'samples/Sm_sample.txt', 'rgba(210,18,67,0.2)', 'rgb(210,18,67)' );
+        printBarChart('Me_chart', 'samples/Me_sample.txt', 'rgba(75,119,169,0.2)', 'rgb(75,119,169)' );
         printPieChart('Mi_pie', 'samples/Mi_andel_sample.txt');
         printPieChart('Sm_pie', 'samples/Sm_andel_sample.txt');
         printPieChart('Me_pie', 'samples/Me_andel_sample.txt');

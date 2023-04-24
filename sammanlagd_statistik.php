@@ -24,7 +24,7 @@
     <script src="js/printBarChart.js"></script>
     <script src="js/printPieChart.js"></script>
     <script>
-        printBarChart('tot_barChart', 'samples/Tot_sample.txt', '#176CA1', '#EA7369' );
+        printBarChart('tot_barChart', 'samples/Tot_sample.txt', 'rgba(95,37,95,0.2)', 'rgb(95,37,95)' );
         printPieChart('tot_pieChart', 'samples/Tot_andel_sample.txt');
     </script>
 

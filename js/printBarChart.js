@@ -17,8 +17,10 @@ function printBarChart(canvasId, textFile, color1, color2){
           labels: data.labels,
           datasets: [{
             label: 'Avtalad betaltid',
-            backgroundColor: color1,
-            data: data.data_avtalad
+            data: data.data_avtalad,
+            borderColor: color2,
+            borderWidth: 2,
+            backgroundColor: color1
           },
           {
             label: 'Faktisk betaltid',
