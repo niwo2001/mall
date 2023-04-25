@@ -133,6 +133,8 @@
     .cat{
       float:left;
       text-align: center;
+      padding: 15px;
+      padding-top: none;
     }
 
 

@@ -7,7 +7,7 @@
 
     <div class='box' id='tot_bar'>
         <h3>Sammanlagd statistik</h3><br>
-        <?php include("get_data_files/tot_data.php") ?>
+        <?php include("get_data_from_db/tot_data.php") ?>
         <canvas id='tot_barChart' width='300' height='250'></canvas>
     </div>
 
@@ -18,14 +18,14 @@
     
     <div id='ranking'>
         <h3>Top tre företag som betalar fakturor mest i tid!</h3>
-        <?php include("get_data_files/list_top.php") ?>
+        <?php include("get_data_from_db/print_top_list.php") ?>
     </div>
 
     <script src="js/printBarChart.js"></script>
     <script src="js/printPieChart.js"></script>
     <script>
-        printBarChart('tot_barChart', 'samples/Tot_sample.txt', 'rgba(95,37,95,0.2)', 'rgb(95,37,95)' );
-        printPieChart('tot_pieChart', 'samples/Tot_andel_sample.txt');
+        printBarChart('tot_barChart', 'samples/Tot_sample.txt', 'rgba(143, 54, 143,0.2)', 'rgb(143, 54, 143)' );
+        printPieChart('tot_pieChart', 'samples/Tot_andel_sample.txt', 'rgb(143, 54, 143)');
     </script>
 
 </div>

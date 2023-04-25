@@ -7,13 +7,12 @@
 
     <div class="left">
         <h2>Sök enskilt företag</h2>
-        <?php include("get_data_files/display_list_of_foretag.php");?>
-        
+        <?php include("get_data_from_db/print_list_of_foretag.php");?>
     </div>
 
 
     <div class="right">
-        <?php include("get_data_files/display_clicked_foretag.php") ?>
+        <?php include("get_data_from_db/store_data_enskilt_foretag.php") ?>
         <div class="containerrr">
             <div id='foretag_bar_box' class='box1'>
                 <h3>Totalen (0-249 anställda)</h3>
@@ -44,8 +43,8 @@
         <script src="js/printBarChart.js"></script>
         <script src="js/printPieChart.js"></script>
         <script>
-            printBarChart('foretag_bar', 'samples/enskiltforetag_sample.txt', 'rgba(95,37,95,0.2)', 'rgb(95,37,95)' );
-            printPieChart('foretag_pie', 'samples/enskiltforetag_andel_sample.txt');
+            printBarChart('foretag_bar', 'samples/enskiltforetag_sample.txt', 'rgba(143, 54, 143, 0.2)', 'rgb(143, 54, 143)' );
+            printPieChart('foretag_pie', 'samples/enskiltforetag_andel_sample.txt', 'rgb(143, 54, 143)');
             
             //kategorier
             printBarChart('foretag_mi', 'samples/enskiltforetag_cat_mi_sample.txt', 'rgba(178,114,0,0.2)', 'rgb(178,114,0)')

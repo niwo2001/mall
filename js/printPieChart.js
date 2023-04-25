@@ -1,5 +1,5 @@
 
-function printPieChart(chartId, filename){
+function printPieChart(chartId, filename, color){
 
     // Get the canvas element
     var ctx = document.getElementById(chartId).getContext('2d');
@@ -15,7 +15,7 @@ function printPieChart(chartId, filename){
             labels: ['Andel föresenade betalningar', 'Andel i tid betaningar'],
             datasets: [{
                 data: [data.andel_sen, data.andel_ejsen],
-                backgroundColor: ['#E6A86B', '#5C5C5C'],
+                backgroundColor: [color, '#5C5C5C'],
                 borderColor: "#fff"
             }]
         };

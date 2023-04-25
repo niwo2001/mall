@@ -20,11 +20,14 @@ function printBarChart(canvasId, textFile, color1, color2){
             data: data.data_avtalad,
             borderColor: color2,
             borderWidth: 2,
-            backgroundColor: color1
+            backgroundColor: color1,
           },
           {
             label: 'Faktisk betaltid',
+            borderColor: color2,
+            borderWidth: 2,
             backgroundColor: color2,
+            hoverBackgroundColor: '#FFFFFF',
             data: data.data_faktisk
           }
           ]
@@ -38,6 +41,16 @@ function printBarChart(canvasId, textFile, color1, color2){
                   ticks: {
                     beginAtZero:true,
                     suggestedMax: 70
+                  },
+                  scaleLabel: {
+                    display: true,
+                    labelString: 'Antal dagar'
+                  }
+                }],
+                xAxes: [{
+                  scaleLabel: {
+                    display: true,
+                    labelString: 'År'
                   }
                 }]
               }
