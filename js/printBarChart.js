@@ -16,14 +16,14 @@ function printBarChart(canvasId, textFile, color1, color2){
         var chartData = {
           labels: data.labels,
           datasets: [{
-            label: 'Avtalad betaltid',
+            label: 'Avtalad betalningstid',
             data: data.data_avtalad,
             borderColor: color2,
             borderWidth: 2,
             backgroundColor: color1,
           },
           {
-            label: 'Faktisk betaltid',
+            label: 'Faktisk betalningstid',
             borderColor: color2,
             borderWidth: 2,
             backgroundColor: color2,

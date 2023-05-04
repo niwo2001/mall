@@ -12,7 +12,7 @@ function printPieChart(chartId, filename, color){
       success: function(data) {
         // Define the data for the chart using the returned data
         var chartData = {
-            labels: ['Andel föresenade betalningar', 'Andel i tid betaningar'],
+            labels: ['Andel efter betalningstid', 'Andel inom betalningstid'],
             datasets: [{
                 data: [data.andel_sen, data.andel_ejsen],
                 backgroundColor: [color, '#5C5C5C'],

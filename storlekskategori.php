@@ -15,7 +15,7 @@
                 <canvas id='Mi_pie' style="height:40px; width:80px"></canvas>
             </div>
         </div>  
-        <div class = "box">
+        <div class = "box" id="middle_box">
             <div class='kategori_bar' id='kat_sma_bar'>  
                 <h3>Småföretag (10-49 anställda)</h3>
                 <canvas id='Sm_chart' width='300' height='250'></canvas>
@@ -25,7 +25,7 @@
             </div>
         </div>
         <div class = "box">
-            <div class='kategori_bar'>
+            <div class='kategori_bar' id='kat_med_bar'>
                 <h3>Medelföretag (50-249 anställda)</h3>
                 <canvas id='Me_chart' width='300' height='250'></canvas>
             </div>

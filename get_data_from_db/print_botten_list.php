@@ -13,7 +13,7 @@ $sql = "SELECT f.ID as FORETAG_ID, f.NAMN as NAMN, AVG(bu.FAKTISK_BETALTID) as A
     INNER JOIN betalningstiduppgift bu ON b.ID = bu.BETALNINGSTID_ID
     WHERE bu.SKAPAT_DATUM = '$theDate'
     GROUP BY f.ID, b.ID
-    ORDER BY ANDELAR ASC";
+    ORDER BY ANDELAR DESC";
 $result_foretag = $conn->query($sql);
 
 // display top 3 companies

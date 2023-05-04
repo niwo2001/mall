@@ -1,7 +1,7 @@
 ﻿body {
     margin: 0;
     background-color: #E6F4FC;
-    font-family: 'Bell MT';
+    font-family: 'Arial';
     min-height: 100vh;
     display: flex;
     flex-direction: column;
@@ -68,7 +68,7 @@
 
   .left {
     height: 700px;
-    flex: 15%;
+    flex: 18%;
     padding: 15px 0;
     background-color: #ebebeb;
     border: black 2px;
@@ -146,13 +146,13 @@
   .box h3{
     padding-left: 25px;
   }
-  .box canvas{
-    border-radius: 15px;
-  }
   #tot_box h3{
     padding-left: 5px;
   }
-  #kat_sma_pie, #kat_sma_bar{
+  #kat_sma_bar, #kat_med_bar{
+    padding-left:7px;
+  }
+  #middle_box{
     border: 1px solid black;
     border-top: none;
     border-bottom: none;

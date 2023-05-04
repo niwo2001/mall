@@ -12,13 +12,15 @@
     </div>
 
     <div class='pie_box' id='tot_pie'>
-        <h3>Procenten av sveriges fakturor från storaföretag till mindre företag</h3>
+        <h3>Genomsnitt av andel betalda fakturor efter avtalad betalningstid (i procent) för 2023</h3>
         <canvas id='tot_pieChart' style="height:40px; width:80px"></canvas>
     </div>
     
     <div id='ranking'>
-        <h3>Top tre företag som betalar fakturor mest i tid!</h3>
+        <h3>Toplista</h3>
         <?php include("get_data_from_db/print_top_list.php") ?>
+        <h3>Bottenlista</h3>
+        <?php include("get_data_from_db/print_botten_list.php") ?>
     </div>
 
     <script src="js/printBarChart.js"></script>
