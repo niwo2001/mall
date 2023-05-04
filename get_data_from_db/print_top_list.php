@@ -21,7 +21,7 @@ if($result_foretag){
     //Print company name
     echo "<table id='topList'>";
         echo "<tr> 
-            <th>Namn</th>
+            <th>Företag</th>
             <th>Andelar</th>
             <th>Faktisk</th>
             <th>Avtalad</th>
@@ -30,8 +30,8 @@ if($result_foretag){
             echo "<tr>";
             echo "<td>".$res['NAMN']."</td>";
             echo "<td>".$res['ANDELAR']."</td>";
-            echo "<td>".$res['AVG_FAKTISK']."</td>";
-            echo "<td>".$res['AVG_AVTALAD']."</td>";
+            echo "<td>".floor($res['AVG_FAKTISK'])."</td>";
+            echo "<td>".floor($res['AVG_AVTALAD'])."</td>";
             echo "</tr>";
         }
     echo "</table>";

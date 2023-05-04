@@ -27,7 +27,6 @@ function printBarChart(canvasId, textFile, color1, color2){
             borderColor: color2,
             borderWidth: 2,
             backgroundColor: color2,
-            hoverBackgroundColor: '#FFFFFF',
             data: data.data_faktisk
           }
           ]
