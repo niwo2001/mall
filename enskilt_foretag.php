@@ -20,8 +20,9 @@
             </div>
             
             <div id='foretag_pie_box' class='box2'>
-                <h3>Så stor andel av räkningar betalas försent senaste året</h3>
+                <h3>Andel fakturor som betalas försent senaste året (%)</h3>
                 <canvas id='foretag_pie' style="height:40px; width:60px"></canvas>
+
             </div>
 
             <div id='enskiltforetag_kategorier' class='box3'>

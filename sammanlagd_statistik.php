@@ -6,21 +6,22 @@
 <div class="infoWrapper">
 
     <div class='box' id='tot_bar'>
-        <h3>Sammanlagd statistik</h3><br>
+        <h3>Sammanlagd statistik</h3>
         <?php include("get_data_from_db/tot_data.php") ?>
         <canvas id='tot_barChart' width='300' height='250'></canvas>
-    </div>
-
-    <div class='pie_box' id='tot_pie'>
-        <h3>Genomsnitt av andel betalda fakturor efter avtalad betalningstid (i procent) för 2023</h3>
-        <canvas id='tot_pieChart' style="height:40px; width:80px"></canvas>
+        <h3>Genomsnitt av andel fakturor som betalats efter avtalad betalningstid senaste året (%)</h3>
+        <canvas id='tot_pieChart' style="height:40px; width:80px;"></canvas>
     </div>
     
     <div id='ranking'>
-        <h3>Toplista</h3>
-        <?php include("get_data_from_db/print_top_list.php") ?>
-        <h3>Bottenlista</h3>
-        <?php include("get_data_from_db/print_botten_list.php") ?>
+        <div id='topArea'>
+            <h3 id='top'>Toplista</h3>
+            <?php include("get_data_from_db/print_top_list.php") ?>
+        </div>
+        <div id='bottenArea'>
+            <h3 id='botten'>Bottenlista</h3>
+            <?php include("get_data_from_db/print_botten_list.php") ?>
+        </div>
     </div>
 
     <script src="js/printBarChart.js"></script>

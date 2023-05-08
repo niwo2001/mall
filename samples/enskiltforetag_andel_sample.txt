@@ -1,1 +1,1 @@
-{"andel_sen":"77.0000","andel_ejsen":23}
+{"andel_sen":54,"andel_ejsen":46}

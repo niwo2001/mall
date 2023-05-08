@@ -2,7 +2,7 @@
 <div class="topnav">
         <a id="b_hem" href="index.php">Start</a> 
         <a id="b_kategori" href="storlekskategori.php">Storlekskategori</a> 
-        <a id="b_foretag" href="enskilt_foretag.php">Enskilt företag</a> 
+        <a id="b_foretag" href="enskilt_foretag.php">Sök enskilt företag</a> 
         <a id="b_sammanlagd" href="sammanlagd_statistik.php">Sammanlagd statistik</a>
 </div>
 

@@ -1,3 +1,3 @@
 <footer id="mainfooter">
-	<p>This is the webbsites footer.</p>
+	<p>Detta är hemsidans footer.</p>
 </footer>

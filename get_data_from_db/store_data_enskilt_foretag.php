@@ -70,7 +70,7 @@ foreach($periods as $p){
         $row = mysqli_fetch_assoc($result_tot);
         $data_avtalad[] = floor($row['AVG_AVTALAD']);
         $data_faktisk[] = floor($row['AVG_FAKTISK']);
-        $data_andel[] = $row['ANDELAR'];
+        $data_andel[] = floor($row['ANDELAR']);
         $name = $row['NAMN'];
     }else{
         echo "Error: " . mysqli_error($conn);

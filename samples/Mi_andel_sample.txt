@@ -1,1 +1,1 @@
-{"andel_sen":"49.2547","andel_ejsen":50.7453}
+{"andel_sen":49,"andel_ejsen":51}

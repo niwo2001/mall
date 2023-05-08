@@ -87,7 +87,7 @@
     }
     /* Style the navigation  inside the left column */
     #searchList {
-      height: 600px;
+      height: 590px;
       overflow-y:scroll;
       list-style-type: none;
       padding: 0;
@@ -146,6 +146,9 @@
   .box h3{
     padding-left: 25px;
   }
+  .box h4{
+    text-align: center;
+  }
   #tot_box h3{
     padding-left: 5px;
   }
@@ -161,7 +164,7 @@
     padding-bottom: 25px;
   }
 
-/* Sammanlagd statistik - top list*/
+/* Sammanlagd statistik - top list */
 #topList{
   border-collapse: collapse;
   border: none;
@@ -187,6 +190,9 @@
   }
   #topList tr td:last-child {
     border-right: none;
+  }
+  .header{
+    background-color: rgb(245, 245, 245);
 }
 
   #tot_pie{
@@ -194,9 +200,18 @@
     border-top:none;
     border-bottom:none;
   }
-  #tot_bar, #tot_pie, #ranking{
-    text-align: center;
+  #tot_bar, #ranking{
+    text-align: left;
     padding: 5px;
+  }
+  #ranking h3{
+    text-decoration: underline;
+  }
+  #tot_bar{
+    border: 1px solid black;
+    border-top:none;
+    border-bottom:none;
+    border-left: none;
   }
 
 

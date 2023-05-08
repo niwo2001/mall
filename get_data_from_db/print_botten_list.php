@@ -20,16 +20,18 @@ $result_foretag = $conn->query($sql);
 if($result_foretag){
     //Print company name
     echo "<table id='topList'>";
-        echo "<tr> 
+        echo "<tr class='header'> 
+            <th></th>
             <th>Företag</th>
-            <th>Andelar</th>
-            <th>Faktisk</th>
-            <th>Avtalad</th>
+            <th>Andel fakturor som betalats inom avtalad betalningstid (%)</th>
+            <th>Faktisk betalningstid (dagar)</th>
+            <th>Avtalad betalningstid (dagar)</th>
             </tr>";
-        for($i = 0; ($i < 3) && ($res = $result_foretag->fetch_assoc()); $i++){
+        for($i = 1; ($i < 4) && ($res = $result_foretag->fetch_assoc()); $i++){
             echo "<tr>";
+            echo "<td>".$i."</td>";
             echo "<td>".$res['NAMN']."</td>";
-            echo "<td>".(100-floor($res['ANDELAR']))."</td>";
+            echo "<td>".(100-round($res['ANDELAR'],2))."</td>";
             echo "<td>".floor($res['AVG_FAKTISK'])."</td>";
             echo "<td>".floor($res['AVG_AVTALAD'])."</td>";
             echo "</tr>";

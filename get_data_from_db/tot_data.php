@@ -39,7 +39,7 @@ foreach($periods as $p){
         $row = mysqli_fetch_assoc($result);
         $data_avtalad[] = floor($row['avg_avtalad']);
         $data_faktisk[] = floor($row['avg_faktisk']);
-        $data_andel[] = $row['andelar'];
+        $data_andel[] = floor($row['andelar']);
     }else{
         echo "Error: " . mysqli_error($conn);
     }

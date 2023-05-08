@@ -8,8 +8,7 @@
     <link rel="icon" type="image/x-icon" href="/images/logo1.png">
     <script src="//code.jquery.com/jquery-1.9.1.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
-</head>
-
+    </head>
 
 <body>
     
