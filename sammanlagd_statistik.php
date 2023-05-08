@@ -6,7 +6,7 @@
 <div class="infoWrapper">
 
     <div class='box' id='tot_bar'>
-        <h3>Sammanlagd statistik</h3>
+        <h3>Genomsnittliga betalningstider mellan alla företag och alla kategorier</h3>
         <?php include("get_data_from_db/tot_data.php") ?>
         <canvas id='tot_barChart' width='300' height='250'></canvas>
         <h3>Genomsnitt av andel fakturor som betalats efter avtalad betalningstid senaste året (%)</h3>

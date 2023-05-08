@@ -20,7 +20,7 @@ $result_foretag = $conn->query($sql);
 if($result_foretag){
     //Print company name
     echo "<table id='topList'>";
-        echo "<tr class='header'> 
+        echo "<tr class='header1'> 
             <th></th>
             <th>Företag</th>
             <th>Andel fakturor som betalats inom avtalad betalningstid (%)</th>
