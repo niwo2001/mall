@@ -1,8 +1,15 @@
 
-function printPieChart(chartId, filename, color){
+/**
+ * A function that creates a pie chart using data from a JSON file
+ * @param {string} canvasId - The ID of the canvas element to draw the chart on
+ * @param {string} textFile - The path to the JSON file containing the chart data
+ * @param {string} color - The color of the first bar in the chart
+ */
+
+function printPieChart(canvasId, filename, color){
 
     // Get the canvas element
-    var ctx = document.getElementById(chartId).getContext('2d');
+    var ctx = document.getElementById(canvasId).getContext('2d');
     
     // Make an AJAX call to get the chart data
     $.ajax({
@@ -41,7 +48,4 @@ function printPieChart(chartId, filename, color){
         console.log(textStatus, errorThrown);
       }
     });
-      
-
-
 }

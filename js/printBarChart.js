@@ -1,4 +1,12 @@
 
+/**
+ * A function that creates a bar chart using data from a JSON file
+ * @param {string} canvasId - The ID of the canvas element to draw the chart on
+ * @param {string} textFile - The path to the JSON file containing the chart data
+ * @param {string} color1 - The color of the first bar in the chart
+ * @param {string} color2 - The color of the second bar in the chart
+ */
+
 function printBarChart(canvasId, textFile, color1, color2){
 
   $(document).ready(function() {
@@ -68,11 +76,6 @@ function printBarChart(canvasId, textFile, color1, color2){
       error: function(jqXHR, textStatus, errorThrown) {
         console.log(textStatus, errorThrown);
       }
+    });
   });
-
- 
-
-  
-});
-
 }
