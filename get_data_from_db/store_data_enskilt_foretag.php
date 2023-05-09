@@ -109,29 +109,29 @@ echo "<h2>".$name."</h2>";
 
 // Save andelar data in a JSON format file
 $json_andelar = json_encode(array('andel_sen' => $data_andel[2], 'andel_ejsen' => 100-$data_andel[2]));
-$datafile_andel = fopen('samples/enskiltforetag_andel_sample.txt', 'w');
+$datafile_andel = fopen('samples/enskiltforetag_andel_sample.json', 'w');
 fwrite($datafile_andel, $json_andelar);
 fclose($datafile_andel);
 
 // Save tot data in a JSON format file
 $json_faktisk = json_encode(array("labels" => $labels_years, "data_faktisk" => $data_faktisk, "data_avtalad" => $data_avtalad));
-$datafile = fopen("samples/enskiltforetag_sample.txt", "w");
+$datafile = fopen("samples/enskiltforetag_sample.json", "w");
 fwrite($datafile, $json_faktisk);
 fclose($datafile);
 
 // Save cat data in a JSON format file MICROFÖRETAG
 $json_faktisk_MI = json_encode(array("labels" => $labels_years, "data_faktisk" => $data_faktisk_MI, "data_avtalad" => $data_avtalad_MI));
-$datafile_MI = fopen("samples/enskiltforetag_cat_mi_sample.txt", "w");
+$datafile_MI = fopen("samples/enskiltforetag_cat_mi_sample.json", "w");
 fwrite($datafile_MI, $json_faktisk_MI);
 fclose($datafile_MI);
 // Save cat data in a JSON format file SMÅFÖRETAG
 $json_faktisk_SM = json_encode(array("labels" => $labels_years, "data_faktisk" => $data_faktisk_SM, "data_avtalad" => $data_avtalad_SM));
-$datafile_SM = fopen("samples/enskiltforetag_cat_sm_sample.txt", "w");
+$datafile_SM = fopen("samples/enskiltforetag_cat_sm_sample.json", "w");
 fwrite($datafile_SM, $json_faktisk_SM);
 fclose($datafile_SM);
 // Save cat data in a JSON format file MEDELFÖRETAG
 $json_faktisk_ME = json_encode(array("labels" => $labels_years, "data_faktisk" => $data_faktisk_ME, "data_avtalad" => $data_avtalad_ME));
-$datafile_ME = fopen("samples/enskiltforetag_cat_me_sample.txt", "w");
+$datafile_ME = fopen("samples/enskiltforetag_cat_me_sample.json", "w");
 fwrite($datafile_ME, $json_faktisk_ME);
 fclose($datafile_ME);
 

@@ -51,12 +51,12 @@ foreach($periods as $p){
 }
 // Save andelar data 
 $json_andelar_MI = json_encode(array('andel_sen' => $data_andel_MI[2], 'andel_ejsen' => (100-$data_andel_MI[2])));
-$datafile_andel_MI = fopen('samples/Mi_andel_sample.txt', 'w');
+$datafile_andel_MI = fopen('samples/Mi_andel_sample.json', 'w');
 fwrite($datafile_andel_MI, $json_andelar_MI);
 fclose($datafile_andel_MI);
 // Save faktisk and avtalad data 
 $json_MI = json_encode(array("labels" => $labels_years_MI, "data_faktisk" => $data_faktisk_MI, "data_avtalad" => $data_avtalad_MI));
-$datafile_MI = fopen("samples/Mi_sample.txt", "w");
+$datafile_MI = fopen("samples/Mi_sample.json", "w");
 fwrite($datafile_MI, $json_MI);
 fclose($datafile_MI);
 //-------------------------------------------------------------------------------------------------------------------
@@ -86,12 +86,12 @@ foreach($periods as $p){
 }
 // Save andelar data 
 $json_andelar_SM = json_encode(array('andel_sen' => $data_andel_SM[2], 'andel_ejsen' => (100-$data_andel_SM[2])));
-$datafile_andel_SM = fopen('samples/Sm_andel_sample.txt', 'w');
+$datafile_andel_SM = fopen('samples/Sm_andel_sample.json', 'w');
 fwrite($datafile_andel_SM, $json_andelar_SM);
 fclose($datafile_andel_SM);
 // Save faktisk and avtalad data 
 $json_SM = json_encode(array("labels" => $labels_years_SM, "data_faktisk" => $data_faktisk_SM, "data_avtalad" => $data_avtalad_SM));
-$datafile_SM = fopen("samples/Sm_sample.txt", "w");
+$datafile_SM = fopen("samples/Sm_sample.json", "w");
 fwrite($datafile_SM, $json_SM);
 fclose($datafile_SM);
 //-------------------------------------------------------------------------------------------------------------------
@@ -121,12 +121,12 @@ foreach($periods as $p){
 }
 // Save andelar data 
 $json_andelar_ME = json_encode(array('andel_sen' => $data_andel_ME[2], 'andel_ejsen' => (100-$data_andel_ME[2])));
-$datafile_andel_ME = fopen('samples/Me_andel_sample.txt', 'w');
+$datafile_andel_ME = fopen('samples/Me_andel_sample.json', 'w');
 fwrite($datafile_andel_ME, $json_andelar_ME);
 fclose($datafile_andel_ME);
 // Save faktisk and avtalad data 
 $json_ME = json_encode(array("labels" => $labels_years_ME, "data_faktisk" => $data_faktisk_ME, "data_avtalad" => $data_avtalad_ME));
-$datafile_ME = fopen("samples/Me_sample.txt", "w");
+$datafile_ME = fopen("samples/Me_sample.json", "w");
 fwrite($datafile_ME, $json_ME);
 fclose($datafile_ME);
 //-------------------------------------------------------------------------------------------------------------------

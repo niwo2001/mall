@@ -48,12 +48,12 @@ foreach($periods as $p){
 
 // Save andelar data 
 $json_andelar = json_encode(array('andel_sen' => $data_andel[2], 'andel_ejsen' => (100-$data_andel[2])));
-$datafile_andel = fopen('samples/tot_andel_sample.txt', 'w');
+$datafile_andel = fopen('samples/tot_andel_sample.json', 'w');
 fwrite($datafile_andel, $json_andelar);
 fclose($datafile_andel);
 // Save data in a JSON format file
 $json = json_encode(array("labels" => $labels_years, "data_faktisk" => $data_faktisk, "data_avtalad" => $data_avtalad));
-$datafile = fopen("samples/Tot_sample.txt", "w");
+$datafile = fopen("samples/Tot_sample.json", "w");
 fwrite($datafile, $json);
 fclose($datafile);
 //-------------------------------------------------------------------------------------------------------------------

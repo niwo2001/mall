@@ -27,8 +27,8 @@
     <script src="js/printBarChart.js"></script>
     <script src="js/printPieChart.js"></script>
     <script>
-        printBarChart('tot_barChart', 'samples/Tot_sample.txt', 'rgba(143, 54, 143,0.2)', 'rgb(143, 54, 143)' );
-        printPieChart('tot_pieChart', 'samples/Tot_andel_sample.txt', 'rgb(143, 54, 143)');
+        printBarChart('tot_barChart', 'samples/Tot_sample.json', 'rgba(143, 54, 143,0.2)', 'rgb(143, 54, 143)' );
+        printPieChart('tot_pieChart', 'samples/Tot_andel_sample.json', 'rgb(143, 54, 143)');
     </script>
 
 </div>

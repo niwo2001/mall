@@ -48,13 +48,13 @@
     <script src="js/printBarChart.js"></script>
         <script src="js/printPieChart.js"></script>
         <script>
-            printBarChart('foretag_bar', 'samples/enskiltforetag_sample.txt', 'rgba(143, 54, 143, 0.2)', 'rgb(143, 54, 143)' );
-            printPieChart('foretag_pie', 'samples/enskiltforetag_andel_sample.txt', 'rgb(143, 54, 143)');
+            printBarChart('foretag_bar', 'samples/enskiltforetag_sample.json', 'rgba(143, 54, 143, 0.2)', 'rgb(143, 54, 143)' );
+            printPieChart('foretag_pie', 'samples/enskiltforetag_andel_sample.json', 'rgb(143, 54, 143)');
             
             //kategorier
-            printBarChart('foretag_mi', 'samples/enskiltforetag_cat_mi_sample.txt', 'rgba(178,114,0,0.2)', 'rgb(178,114,0)')
-            printBarChart('foretag_sm', 'samples/enskiltforetag_cat_sm_sample.txt', 'rgba(210,18,67,0.2)', 'rgb(210,18,67)')
-            printBarChart('foretag_me', 'samples/enskiltforetag_cat_me_sample.txt', 'rgba(75,119,169,0.2)', 'rgb(75,119,169)')
+            printBarChart('foretag_mi', 'samples/enskiltforetag_cat_mi_sample.json', 'rgba(178,114,0,0.2)', 'rgb(178,114,0)')
+            printBarChart('foretag_sm', 'samples/enskiltforetag_cat_sm_sample.json', 'rgba(210,18,67,0.2)', 'rgb(210,18,67)')
+            printBarChart('foretag_me', 'samples/enskiltforetag_cat_me_sample.json', 'rgba(75,119,169,0.2)', 'rgb(75,119,169)')
         </script>
 
 </div>
