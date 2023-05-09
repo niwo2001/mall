@@ -32,8 +32,8 @@ if($result_foretag){
             echo "<td>".$i."</td>";
             echo "<td>".$res['NAMN']."</td>";
             echo "<td>".(100-round($res['ANDELAR']))."</td>";
-            echo "<td>".floor($res['AVG_FAKTISK'])."</td>";
-            echo "<td>".floor($res['AVG_AVTALAD'])."</td>";
+            echo "<td>".round($res['AVG_FAKTISK'])."</td>";
+            echo "<td>".round($res['AVG_AVTALAD'])."</td>";
             echo "</tr>";
         }
     echo "</table>";

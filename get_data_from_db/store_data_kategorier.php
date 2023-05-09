@@ -42,9 +42,9 @@ foreach($periods as $p){
     $result = $conn->query($sql);   
     if($result){
         $row = mysqli_fetch_assoc($result);
-        $data_avtalad_MI[] = floor($row['avg_avtalad']);
-        $data_faktisk_MI[] = floor($row['avg_faktisk']);
-        $data_andel_MI[] = floor($row['andelar']);
+        $data_avtalad_MI[] = round($row['avg_avtalad']);
+        $data_faktisk_MI[] = round($row['avg_faktisk']);
+        $data_andel_MI[] = round($row['andelar']);
     }else{
         echo "Error: " . mysqli_error($conn);
     }
@@ -77,9 +77,9 @@ foreach($periods as $p){
     $result = $conn->query($sql);   
     if($result){
         $row = mysqli_fetch_assoc($result);
-        $data_avtalad_SM[] = floor($row['avg_avtalad']);
-        $data_faktisk_SM[] = floor($row['avg_faktisk']);
-        $data_andel_SM[] = floor($row['andelar']);
+        $data_avtalad_SM[] = round($row['avg_avtalad']);
+        $data_faktisk_SM[] = round($row['avg_faktisk']);
+        $data_andel_SM[] = round($row['andelar']);
     }else{
         echo "Error: " . mysqli_error($conn);
     }
@@ -112,9 +112,9 @@ foreach($periods as $p){
     $result = $conn->query($sql);   
     if($result){
         $row = mysqli_fetch_assoc($result);
-        $data_avtalad_ME[] = floor($row['avg_avtalad']);
-        $data_faktisk_ME[] = floor($row['avg_faktisk']);
-        $data_andel_ME[] = floor($row['andelar']);
+        $data_avtalad_ME[] = round($row['avg_avtalad']);
+        $data_faktisk_ME[] = round($row['avg_faktisk']);
+        $data_andel_ME[] = round($row['andelar']);
     }else{
         echo "Error: " . mysqli_error($conn);
     }

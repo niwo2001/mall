@@ -68,9 +68,9 @@ foreach($periods as $p){
     $result_tot = $conn->query($sql_tot);
     if($result_tot){
         $row = mysqli_fetch_assoc($result_tot);
-        $data_avtalad[] = floor($row['AVG_AVTALAD']);
-        $data_faktisk[] = floor($row['AVG_FAKTISK']);
-        $data_andel[] = floor($row['ANDELAR']);
+        $data_avtalad[] = round($row['AVG_AVTALAD']);
+        $data_faktisk[] = round($row['AVG_FAKTISK']);
+        $data_andel[] = round($row['ANDELAR']);
         $name = $row['NAMN'];
     }else{
         echo "Error: " . mysqli_error($conn);
@@ -88,14 +88,14 @@ foreach($periods as $p){
         if($result_cat_sm){
             $row = mysqli_fetch_assoc($result_cat_sm);
             if($kategori == 'MicroFöretag'){
-                $data_avtalad_MI[] = floor($row['AVTALAD']);
-                $data_faktisk_MI[] = floor($row['FAKTISK']);
+                $data_avtalad_MI[] = round($row['AVTALAD']);
+                $data_faktisk_MI[] = round($row['FAKTISK']);
             }elseif($kategori == 'Småföretag'){
-                $data_avtalad_SM[] = floor($row['AVTALAD']);
-                $data_faktisk_SM[] = floor($row['FAKTISK']);
+                $data_avtalad_SM[] = round($row['AVTALAD']);
+                $data_faktisk_SM[] = round($row['FAKTISK']);
             }elseif($kategori == 'Medelföretag'){
-                $data_avtalad_ME[] = floor($row['AVTALAD']);
-                $data_faktisk_ME[] = floor($row['FAKTISK']);
+                $data_avtalad_ME[] = round($row['AVTALAD']);
+                $data_faktisk_ME[] = round($row['FAKTISK']);
             }
         }else{
             echo "Error: " . mysqli_error($conn);
