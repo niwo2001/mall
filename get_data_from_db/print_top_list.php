@@ -40,7 +40,6 @@ if($result_foretag){
 }else{
     echo "Error: " . mysqli_error($conn);
 }
-
 CloseCon($conn);
 
 ?>
