@@ -12,7 +12,7 @@
                 <canvas id='Mi_chart' width='300' height='250'></canvas>
             </div>
             <div>
-                <h4>Andel sent betalade fakturor (%)</h4>
+                <h4>Andel fakturor som betalats<br>efter avtalad betalningstid<br>senaste året (%)</h4>
                 <canvas id='Mi_pie' style="height:40px; width:80px"></canvas>
             </div>
         </div>  
@@ -22,7 +22,7 @@
                 <canvas id='Sm_chart' width='300' height='250'></canvas>
             </div>
             <div id='kat_sma_pie'>
-                <h4>Andel sent betalade fakturor (%)</h4>
+                <h4>Andel fakturor som betalats<br>efter avtalad betalningstid<br>senaste året (%)</h4>
                 <canvas id='Sm_pie' style="height:40px; width:80px"></canvas>
             </div>
         </div>
@@ -32,7 +32,7 @@
                 <canvas id='Me_chart' width='300' height='250'></canvas>
             </div>
             <div>
-                <h4>Andel sent betalade fakturor (%)</h4>
+                <h4>Andel fakturor som betalats<br>efter avtalad betalningstid<br>senaste året (%)</h4>
                 <canvas id='Me_pie' style="height:40px; width:80px"></canvas>
             </div>
         </div>

@@ -16,13 +16,13 @@
             <!--2-->
             <div id='bar_box' class='boxx'>
                 <?php include("get_data_from_db/store_data_enskilt_foretag.php") ?>
-                <h3>Totalen (0-249 anställda)</h3>
+                <h3>Totalen<br>(0-249 anställda)</h3>
                 <canvas id='foretag_bar' width='300' height='250'></canvas>
             </div>
         
             <!--3-->
             <div id='pie_box' class='boxx'>
-                <h3>Andel fakturor som betalas försent senaste året (%)</h3>
+                <h3>Andel fakturor som betalats efter avtalad betalningstid senaste året (%)</h3>
                 <canvas id='foretag_pie' style="height:40px; width:60px"></canvas>
             </div>
         </div>

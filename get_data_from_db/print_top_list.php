@@ -23,17 +23,17 @@ if($result_foretag){
         echo "<tr class='header'> 
             <th></th>
             <th>Företag</th>
-            <th>Andel fakturor som betalats inom avtalad betalningstid (%)</th>
-            <th>Faktisk betalningstid (dagar)</th>
-            <th>Avtalad betalningstid (dagar)</th>
+            <th>Andel fakturor som betalats inom avtalad betalningstid</th>
+            <th>Faktisk betalningstid</th>
+            <th>Avtalad betalningstid</th>
             </tr>";
         for($i = 1; ($i < 4) && ($res = $result_foretag->fetch_assoc()); $i++){
             echo "<tr>";
             echo "<td>".$i."</td>";
             echo "<td>".$res['NAMN']."</td>";
-            echo "<td>".(100-round($res['ANDELAR']))."</td>";
-            echo "<td>".round($res['AVG_FAKTISK'])."</td>";
-            echo "<td>".round($res['AVG_AVTALAD'])."</td>";
+            echo "<td>".(100-round($res['ANDELAR']))." %</td>";
+            echo "<td>".round($res['AVG_FAKTISK'])." dagar</td>";
+            echo "<td>".round($res['AVG_AVTALAD'])." dagar</td>";
             echo "</tr>";
         }
     echo "</table>";
