@@ -19,7 +19,7 @@ $result_foretag = $conn->query($sql);
 // display top 3 companies
 if($result_foretag){
     //Print company name
-    echo "<table id='topList'>";
+    echo "<table class='topList'>";
         echo "<tr class='header'> 
             <th></th>
             <th>Företag</th>

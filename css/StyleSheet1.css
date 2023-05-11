@@ -167,30 +167,31 @@
   }
 
 /* Sammanlagd statistik - top list */
-#topList{
+/* Sammanlagd statistik - top list */
+.topList{
   border-collapse: collapse;
   border: none;
   }
-  #topList td, th {
+  .topList td, .topList th {
     padding:10px;
     border: 1px solid #c9c9c9;
   }
-  #topList th:first-child{
+  .topList th:first-child{
     border-left: none;
   }
-  #topList th:last-child{
+  .topList th:last-child{
     border-right: none;
   }
-  #topList tr:first-child th {
+  .topList tr:first-child th {
     border-top: none;
   }
-  #topList tr:last-child td {
+  .topList tr:last-child td {
     border-bottom: none;
   }
-  #topList tr td:first-child {
+  .topList tr td:first-child {
     border-left: none;
   }
-  #topList tr td:last-child {
+  .topList tr td:last-child {
     border-right: none;
   }
   .header{
