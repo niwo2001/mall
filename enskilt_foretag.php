@@ -22,7 +22,7 @@
         
             <!--3-->
             <div id='pie_box' class='boxx'>
-                <h3>Andel fakturor som betalats efter avtalad betalningstid senaste året (%)</h3>
+                <h3>Andel fakturor som betalats inom och efter avtalad betalningstid senaste året (%)</h3>
                 <canvas id='foretag_pie' style="height:40px; width:60px"></canvas>
             </div>
         </div>

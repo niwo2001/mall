@@ -9,7 +9,7 @@
         <h3>Genomsnittliga betalningstider mellan alla företag och alla kategorier</h3>
         <?php include("get_data_from_db/store_data_tot.php") ?>
         <canvas id='tot_barChart' width='300' height='250'></canvas>
-        <h3>Genomsnitt av andel fakturor som betalats efter avtalad betalningstid senaste året senaste året (%)</h3>
+        <h3>Genomsnitt av andel fakturor som betalats inom och efter avtalad betalningstid senaste året (%)</h3>
         <canvas id='tot_pieChart' style="height:40px; width:80px;"></canvas>
     </div>
     
