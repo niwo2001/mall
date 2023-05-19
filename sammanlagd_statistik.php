@@ -6,6 +6,7 @@
 <div class="infoWrapper">
 
     <div class='box' id='tot_bar'>
+        <?php include("choose_year_button.php")?>
         <h3>Genomsnittliga betalningstider mellan alla företag och alla kategorier</h3>
         <?php include("get_data_from_db/store_data_tot.php") ?>
         <canvas id='tot_barChart' width='300' height='250'></canvas>

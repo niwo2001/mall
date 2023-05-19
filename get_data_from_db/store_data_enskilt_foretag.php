@@ -22,7 +22,8 @@ else{
 }
 
 // SET VARIABLES
-$amount_of_periods = 3;
+$fileContents = file_get_contents('samples/year.txt');
+$amount_of_periods = intval($fileContents);
 // Get dates
 $periods = array();
 $todaysDate = date('m-d');
@@ -108,7 +109,8 @@ foreach($periods as $p){
 echo "<h2>".$name."</h2>";
 
 // Save andelar data in a JSON format file
-$json_andelar = json_encode(array('andel_sen' => $data_andel[2], 'andel_ejsen' => 100-$data_andel[2]));
+$data_andel = array_reverse($data_andel);
+$json_andelar = json_encode(array('andel_sen' => $data_andel[0], 'andel_ejsen' => 100-$data_andel[0]));
 $datafile_andel = fopen('samples/enskiltforetag_andel_sample.json', 'w');
 fwrite($datafile_andel, $json_andelar);
 fclose($datafile_andel);

@@ -4,7 +4,8 @@ include_once("database/db_connection.php");
 $conn = OpenCon();
 
 // SET VARIABLES
-$amount_of_periods = 3;
+$fileContents = file_get_contents('samples/year.txt');
+$amount_of_periods = intval($fileContents);
 $micro = 'Microföretag';
 $sma = 'Småföretag';
 $medel = 'Medelföretag';
@@ -50,7 +51,8 @@ foreach($periods as $p){
     }
 }
 // Save andelar data 
-$json_andelar_MI = json_encode(array('andel_sen' => $data_andel_MI[2], 'andel_ejsen' => (100-$data_andel_MI[2])));
+$data_andel_MI = array_reverse($data_andel_MI);
+$json_andelar_MI = json_encode(array('andel_sen' => $data_andel_MI[0], 'andel_ejsen' => (100-$data_andel_MI[0])));
 $datafile_andel_MI = fopen('samples/Mi_andel_sample.json', 'w');
 fwrite($datafile_andel_MI, $json_andelar_MI);
 fclose($datafile_andel_MI);
@@ -85,7 +87,8 @@ foreach($periods as $p){
     }
 }
 // Save andelar data 
-$json_andelar_SM = json_encode(array('andel_sen' => $data_andel_SM[2], 'andel_ejsen' => (100-$data_andel_SM[2])));
+$data_andel_SM = array_reverse($data_andel_SM);
+$json_andelar_SM = json_encode(array('andel_sen' => $data_andel_SM[0], 'andel_ejsen' => (100-$data_andel_SM[0])));
 $datafile_andel_SM = fopen('samples/Sm_andel_sample.json', 'w');
 fwrite($datafile_andel_SM, $json_andelar_SM);
 fclose($datafile_andel_SM);
@@ -120,7 +123,8 @@ foreach($periods as $p){
     }
 }
 // Save andelar data 
-$json_andelar_ME = json_encode(array('andel_sen' => $data_andel_ME[2], 'andel_ejsen' => (100-$data_andel_ME[2])));
+$data_andel_ME = array_reverse($data_andel_ME);
+$json_andelar_ME = json_encode(array('andel_sen' => $data_andel_ME[0], 'andel_ejsen' => (100-$data_andel_ME[0])));
 $datafile_andel_ME = fopen('samples/Me_andel_sample.json', 'w');
 fwrite($datafile_andel_ME, $json_andelar_ME);
 fclose($datafile_andel_ME);

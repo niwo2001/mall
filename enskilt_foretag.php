@@ -6,6 +6,8 @@
 <div class="infoWrapper">
 
     <div class="contain">
+        
+        <?php include("choose_year_button.php")?>
         <div class="upp">
             <!--1-->
             <div id="left" class="boxx"> 

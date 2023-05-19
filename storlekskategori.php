@@ -6,6 +6,7 @@
 <div class="infoWrapper">
 
     <div>
+        <?php include("choose_year_button.php")?>
         <div class = "box">
             <div class='kategori_bar'>
                 <h3>Microföretag (0-9 anställda)</h3>
